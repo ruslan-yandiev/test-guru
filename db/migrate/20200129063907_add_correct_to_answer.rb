@@ -5,6 +5,5 @@ class AddCorrectToAnswer < ActiveRecord::Migration[6.0]
     add_column :answers, :correct, :boolean, default: false
     change_column_null(:answers, :correct, false)
     add_reference :answers, :question, index: true, null: false, foreign_key: true
-    # add_foreign_key :answers, :questions
   end
 end
