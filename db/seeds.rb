@@ -13,7 +13,7 @@ categories = Category.create!([{ title: 'Люди' }, { title: 'Животные
 tests = Test.create!([
                { title: 'Образование', level: 1, category_id: categories[0].id },
                { title: 'Здоровье', level: 2, category_id: categories[0].id },
-               { title: 'Особенности', level: 2, category_id: categories[1].id },
+               { title: 'Особенности', level: 1, category_id: categories[1].id },
                { title: 'Виды', level: 2, category_id: categories[1].id }
 ])
 
@@ -30,11 +30,11 @@ Answer.create!([
                { body: 'Брахиозавр', question_id: questions[0].id }
 ])
 
-user = User.create(login: 'cool-net', password_digest: 'my_password')
+user = User.create(login: 'cool-net', password: 'my_password')
 
 UserConnectionTest.create([
                { user_id: user.id, test_id: tests[0].id },
                { user_id: user.id, test_id: tests[1].id },
                { user_id: user.id, test_id: tests[2].id },
-               { user_id: user.id, test_id: tests[2].id }
+               { user_id: user.id, test_id: tests[3].id }
 ])
