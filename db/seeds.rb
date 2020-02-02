@@ -35,5 +35,6 @@ user = User.create(login: 'cool-net', password_digest: 'my_password')
 UserConnectionTest.create([
                { user_id: user.id, test_id: tests[0].id },
                { user_id: user.id, test_id: tests[1].id },
+               { user_id: user.id, test_id: tests[2].id },
                { user_id: user.id, test_id: tests[2].id }
 ])
