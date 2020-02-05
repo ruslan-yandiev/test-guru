@@ -1,32 +1,39 @@
 # frozen_string_literal: true
 
+user2 = User.create!(login: 'cool-net2', password: 'my_password2')
+
 categories = Category.create!([{ title: 'Люди' }, { title: 'Животные' }])
 
 tests = Test.create!([
-               { title: 'Образование', level: 1, category_id: categories[0].id },
-               { title: 'Здоровье', level: 2, category_id: categories[0].id },
-               { title: 'Особенности', level: 1, category_id: categories[1].id },
-               { title: 'Виды', level: 2, category_id: categories[1].id }
+               { title: 'Образование', level: 1, category: categories[0], author: user2 },
+               { title: 'Здоровье', level: 2, category: categories[0], author: user2 },
+               { title: 'Особенности', level: 1, category: categories[1], author: user2 },
+               { title: 'Виды', level: 2, category: categories[1], author: user2 }
 ])
 
 questions = Question.create([
-               { body: 'Самое большое животное жившее на земле?', test_id: tests[2].id },
-               { body: 'способы укрепить эммунитет?', test_id: tests[1].id },
-               { body: 'Самое быстрое животное жившее на земле из современных?', test_id: tests[2].id }
+               { body: 'Самое большое животное жившее на земле?', test: tests[2] },
+               { body: 'способы укрепить эммунитет?', test: tests[1] },
+               { body: 'Самое быстрое животное жившее на земле из современных?', test: tests[2] }
 ])
 
 Answer.create!([
-               { body: 'Слон', question_id: questions[0].id },
-               { body: 'Дипладок', question_id: questions[0].id },
-               { body: 'Синий кит', question_id: questions[0].id },
-               { body: 'Брахиозавр', question_id: questions[0].id }
+               { body: 'Слон', question: questions[0] },
+               { body: 'Дипладок', question: questions[0] },
+               { body: 'Синий кит', question: questions[0] },
+               { body: 'Брахиозавр', question: questions[0] }
 ])
 
-user = User.create(login: 'cool-net', password: 'my_password')
+user = User.create!(login: 'cool-net', password: 'my_password')
 
 UserConnectionTest.create([
-               { user_id: user.id, test_id: tests[0].id },
-               { user_id: user.id, test_id: tests[1].id },
-               { user_id: user.id, test_id: tests[2].id },
-               { user_id: user.id, test_id: tests[3].id }
+               { user: user, test: tests[0] },
+               { user: user, test: tests[1] },
+               { user: user, test: tests[2] },
+               { user: user, test: tests[3] }
 ])
+
+Test.create!( title: 'existing test', category: categories[0], author: user)
+
+Test.create!(title: 'just_test', author: User.find_by(login: 'cool-net2'))
+
