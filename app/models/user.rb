@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :user_connection_test, dependent: :destroy
-  has_many :tests, through: :user_connection_test
+  has_many :user_connection_tests, dependent: :destroy
+  has_many :tests, through: :user_connection_tests
   has_many :existing_tests, class_name: 'Test', foreign_key: :author_id
 
   validates :login, presence: true, length: { minimum: 5 }
