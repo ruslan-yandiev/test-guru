@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   has_many :user_connection_test, dependent: :destroy
   has_many :tests, through: :user_connection_test
+  has_many :existing_tests, class_name: 'Test', foreign_key: :author_id
 
   validates :login, presence: true, length: { minimum: 5 }
   validates :password, presence: true, length: { minimum: 5 }
