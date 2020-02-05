@@ -22,7 +22,7 @@ questions = Question.create([
 Answer.create!([
                { body: 'Слон', question: questions[0] },
                { body: 'Дипладок', question: questions[0] },
-               { body: 'Синий кит', question: questions[0] },
+               { body: 'Синий кит', question: questions[0], correct: true },
                { body: 'Брахиозавр', question: questions[0] }
 ])
 
