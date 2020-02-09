@@ -7,9 +7,9 @@ class Test < ApplicationRecord
   has_many :users, through: :user_connection_tests
   has_many :questions, dependent: :destroy
 
-  validates :title, presence: true, uniqueness: true
-  validates :level, numericality: { only_integer: true }, allow_nil: true #, if: :ruby_test?
-
+  validates :title, presence: true
+  validates :title, uniqueness: { scope: :level }
+  validates :level, numericality: { only_integer: true, greater_than: 0 } #, if: :ruby_test?
   validate :validate_max_level, on: :create
 
   scope :easy, -> (level) { where(level: level) }
