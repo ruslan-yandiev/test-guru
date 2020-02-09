@@ -8,21 +8,14 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
 
   validates :title, presence: true, uniqueness: true
-  validates :level, numericality: { only_integer: true }, allow_nil: true#, if: :ruby_test?
+  validates :level, numericality: { only_integer: true }, allow_nil: true #, if: :ruby_test?
 
   validate :validate_max_level, on: :create
 
   scope :easy, -> (level) { where(level: level) }
-   
-  # def self.sort_names_by_category(name_category)
-  #   joins('JOIN categories ON categories.id = tests.category_id')
-  #   .where(categories: { title: name_category })
-  # end
-
-  # def self.sort_names_by_category(name_category)
-  #   joins(:category).where(categories: { title: name_category })
-  # end
-
+  scope :lite, -> { where(level: 0..1) }
+  scope :normal, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
   scope :sort_names_by_category, lambda { |name_category| joins(:category).where(categories: { title: name_category }) }
 
   private
