@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-user = User.create!(login: 'cool-net', password: 'my_password')
+user = User.create!(email: 'cool-net@yandex.ru', password: 'my_password')
 
-user2 = User.create!(login: 'cool-net2', password: 'my_password2')
+user2 = User.create!(email: 'cool-net2@yandex.ru', password: 'my_password2')
 
 categories = Category.create!([{ title: 'Люди' }, { title: 'Животные' }])
 
@@ -35,5 +35,4 @@ UserConnectionTest.create([
 
 Test.create!( title: 'existing test', category: categories[1], author: user)
 
-Test.create!(title: 'does_not_have_a_category', author: User.find_by(login: 'cool-net2'))
-
+Test.create!(title: 'does_not_have_a_category', author: User.find_by(email: 'cool-net2@yandex.ru'))
