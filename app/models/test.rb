@@ -23,7 +23,8 @@ class Test < ApplicationRecord
   def validate_max_level
   	errors.add(:level) if level.to_i > 10
   end
-
+  
+  # Условная валидация
   # def ruby_test?
   # 	title.match(/Ruby/i)
   # end
