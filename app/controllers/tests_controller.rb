@@ -1,14 +1,14 @@
 class TestsController < ApplicationController
   def index
-  	# Верхняя нужна, чтобы колбык выполнялся только в родительском классе, а в дочерних не выполнялся, 
+  	# Верхняя нужна, чтобы колбэк выполнялся только в родительском классе, а в дочерних не выполнялся, 
   	# это если колбэки помещены в родительский класс ApplicationController
   	# skip_before_action :find_test, only: :show
 
-  	before_action :fild_test
+  	# before_action :fild_test
 
-  	after_action :send_log_message
+  	# after_action :send_log_message
 
-  	around_action :log_execute_time
+  	# around_action :log_execute_time
 
 
 
@@ -63,44 +63,44 @@ class TestsController < ApplicationController
   	# end
   end
 
-  # отвечает за отображение конкретного теста в нашем случае
-  def show
+  # # отвечает за отображение конкретного теста в нашем случае
+  # def show
 
-  	# перенапрявляет наш запрос на любой указанный путь и адрес
-  	# redirect_to 'https://yandex.ru'
-  	# можем использовать хелпер root_path, для вывода на корневую страницу созданный при создании маршрутов http://localhost:3000/tests/1
-  	redirect_to root_path
-  end
-
-  def search
-  	result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-
-  	render plain: result.join("\n")
-  end
-
-  def new
-  	# params[:controller]
-  	# controller_name
-  	# action_name
-  end
-
-  def create
-  	# result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-
-  	# render plain: result.join("\n")
-
-  	test = Test.create(test_params)
-
-  	render plain: test.inspect
-  end
-
-  # def start
-  # 	render plain: 'Start certain test'
+  # 	# перенапрявляет наш запрос на любой указанный путь и адрес
+  # 	# redirect_to 'https://yandex.ru'
+  # 	# можем использовать хелпер root_path, для вывода на корневую страницу созданный при создании маршрутов http://localhost:3000/tests/1
+  # 	redirect_to root_path
   # end
 
-  private
+  # def search
+  # 	result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
 
-  def test_params
-  	params.require(:test).permit(:title, :level)
-  end
+  # 	render plain: result.join("\n")
+  # end
+
+  # def new
+  # 	# params[:controller]
+  # 	# controller_name
+  # 	# action_name
+  # end
+
+  # def create
+  # 	# result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
+
+  # 	# render plain: result.join("\n")
+
+  # 	test = Test.create(test_params)
+
+  # 	render plain: test.inspect
+  # end
+
+  # # def start
+  # # 	render plain: 'Start certain test'
+  # # end
+
+  # private
+
+  # def test_params
+  # 	params.require(:test).permit(:title, :level)
+  # end
 end
