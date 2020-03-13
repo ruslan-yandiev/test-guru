@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: %i[index create delete]
-  before_action :set_question, only: %i[show]
+  before_action :set_test, only: %i[index create]
+  before_action :set_question, only: %i[show destroy]
 
   def index
   	render json: { questions: @test.questions }
@@ -18,12 +18,14 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def new
-  	@question = Question.new
-  end
+  def new; end
 
-  def delete
-  	
+  def destroy
+  	if questions.delete
+      render Question.all.each.with_index { |i, q| "#{i}) #{q}" }
+    else
+      render plain: 'Что-то не так!'
+    end
   end
 
   private
