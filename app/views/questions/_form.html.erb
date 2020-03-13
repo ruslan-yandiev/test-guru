@@ -1,0 +1,12 @@
+<!-- укажем в форме название экшена который будет обрабатывать эту форму(оговорка?), форма будет отправлена с помощью post запроса и обрабатываться будет по URL /tests  -->
+<form action="/tests/<%= params[:test_id] %>/questions" method="post" accept-charset="utf-8">
+	<!-- укажем токен, чтобы рельсы пропустили post запрос в name укажем название параметра который уйдет на сервер, в type укажем hidden это значит, что он будет скрыт от пользователя, в value укажем метод -->
+   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+	<p>
+	 <label for="body">Вопрос:</label>
+	 <input type="text" name="question[body]" id="question-body">
+	</p>
+
+	<input type="submit" name="Create">
+</form>
