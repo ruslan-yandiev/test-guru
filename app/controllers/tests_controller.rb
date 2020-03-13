@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  def index
+  # def index
   	# Верхняя нужна, чтобы колбэк выполнялся только в родительском классе, а в дочерних не выполнялся, 
   	# это если колбэки помещены в родительский класс ApplicationController
   	# skip_before_action :find_test, only: :show
@@ -61,7 +61,7 @@ class TestsController < ApplicationController
   	# 	format.html { render plain: 'All tests' }
   	# 	format.json { render json: { tests: Test.all } }
   	# end
-  end
+  # end
 
   # # отвечает за отображение конкретного теста в нашем случае
   # def show
