@@ -1,0 +1,24 @@
+<h1>Tricky Tests</h1>
+
+<% if @tests.present? %>
+
+  <table>
+  	<thead>
+  		<tr>
+  			<th>Title</th>
+  			<th>Level</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+		<% @tests.each do |test| %>
+  		  <tr>
+  			<td><%= test.title %></td>
+  			<td><%= test.level %></td>
+  		  </tr>
+		<% end %>
+  	</tbody>
+  </table>
+
+<% else %>
+	<p>You have no tests in progress at this moment.</p>
+<% end %>

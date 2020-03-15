@@ -1,4 +1,4 @@
-<h1>Create new Test</h1>
+<h1><%= @test.title %> test</h1>
 <!-- настройку опции local: true указали, чтобы в html формате отобразить вывод ошибок
 иначе установленный  gem 'turbolinks' не позволит это сделать в виду его особенностей без спец настройки. -->
 <%= form_with model: @test, local: true do |form| %>
