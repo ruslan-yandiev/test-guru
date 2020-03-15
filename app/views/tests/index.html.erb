@@ -9,13 +9,11 @@
   			<th>Level</th>
   		</tr>
   	</thead>
+    
   	<tbody>
-		<% @tests.each do |test| %>
-  		  <tr>
-  			<td><%= test.title %></td>
-  			<td><%= test.level %></td>
-  		  </tr>
-		<% end %>
+      <!-- обработаем коллекцию тестов в представлении _test.html.erb
+      Rails сам использует Итератор на коллекции -->
+      <%= render @tests %>
   	</tbody>
   </table>
 
