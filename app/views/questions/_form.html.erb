@@ -1,14 +1,9 @@
-<!-- настройку опции local: true указали, чтобы в html формате отобразить вывод ошибок
-иначе установленный  gem 'turbolinks' не позволит это сделать в виду его особенностей без спец настройки. -->
 <%= form_with model: [@test, @question], local: true do |form| %>
   <!-- отрендерим представление(паршл) обработки отображения ошибок -->
-  <%= render 'shared/errors', resourse: @test %>
+  <%= render 'shared/errors', resourse: @question %>
 
   <p>
   	<%= form.label :body %> <br>
-    <!--   	хэш id: :test_title в качестве аргумента передали для того, чтобы при клике на слово title курсор 
-  	перебрасывало на поле заполнения title и так мы для html тега imput зададим атрибут id который будет 
-  	иметь то же значение как и для тега label   -->
     <%= form.text_field :body, id: :question_body %>
   </p>
 
