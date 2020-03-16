@@ -1,3 +1,5 @@
+<%= link_to 'Create new question', new_test_question_path(@test) %>
+
 <p>
 	<strong>Title:</strong>
 	<%= @test.title %>
@@ -16,6 +18,8 @@
 
 <!-- в хеплер роутинга edit_test_path передали в качестве аргумента объект
 чтобы он коректно мог найти к нему путь, тоесть того теста который мы просматриваем -->
-<%= link_to 'Edit', edit_test_path(@test) %>
-|
 <%= link_to 'Back', tests_path %>
+|
+<%= link_to 'Edit Test', edit_test_path(@test) %>
+|
+<%= link_to 'Delete Test', test_path(@test), method: :delete %>
