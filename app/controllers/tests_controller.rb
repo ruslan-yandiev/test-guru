@@ -1,20 +1,18 @@
 class TestsController < ApplicationController
+  before_action :set_test, only: %i[show edit update destroy]
+
   def index
     @tests = Test.all
   end
 
-  def show
-    @test = Test.find(params[:id])
-  end
+  def show; end
 
   def new
     # создадим экземпляр не сохраняя его в базу
     @test = Test.new
   end
 
-  def edit
-    @test = Test.find(params[:id])
-  end
+  def edit; end
 
   def create
     # создадим экземпляр не сохраняя его в базу и с передачей стронг параметров.
@@ -32,8 +30,6 @@ class TestsController < ApplicationController
   end
 
   def update
-    @test = Test.find(params[:id])
-
     if @test.update(test_params)
       redirect_to @test
     else
@@ -42,16 +38,17 @@ class TestsController < ApplicationController
   end
 
   def destroy
-    @test = Test.find(params[:id])
-
     # destroy удалит объект из БД, но объект в оперативной памяти останется 
     # и мы можем обратиться к нему к примеру, чтобы отобразить какой тест удален
     @test.destroy
     redirect_to tests_path
-
   end
 
   private
+
+  def set_test
+    @test = Test.find(params[:id])
+  end
 
   # стронг параметры, для защиты. Рельсы обязуют.
   def test_params
