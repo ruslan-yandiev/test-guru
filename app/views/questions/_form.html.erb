@@ -1,12 +1,21 @@
-<!-- укажем в форме название экшена который будет обрабатывать эту форму(оговорка?), форма будет отправлена с помощью post запроса и обрабатываться будет по URL /tests  -->
-<form action="/tests/<%= params[:test_id] %>/questions" method="post" accept-charset="utf-8">
-	<!-- укажем токен, чтобы рельсы пропустили post запрос в name укажем название параметра который уйдет на сервер, в type укажем hidden это значит, что он будет скрыт от пользователя, в value укажем метод -->
-   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<!-- настройку опции local: true указали, чтобы в html формате отобразить вывод ошибок
+иначе установленный  gem 'turbolinks' не позволит это сделать в виду его особенностей без спец настройки. -->
+<%= form_with model: [@test, @question], local: true do |form| %>
+  <!-- отрендерим представление(паршл) обработки отображения ошибок -->
+  <%= render 'shared/errors', resourse: @test %>
 
-	<p>
-	 <label for="body">Вопрос:</label>
-	 <input type="text" name="question[body]" id="question-body">
-	</p>
+  <p>
+  	<%= form.label :body %> <br>
+    <!--   	хэш id: :test_title в качестве аргумента передали для того, чтобы при клике на слово title курсор 
+  	перебрасывало на поле заполнения title и так мы для html тега imput зададим атрибут id который будет 
+  	иметь то же значение как и для тега label   -->
+    <%= form.text_field :body, id: :question_body %>
+  </p>
 
-	<input type="submit" name="Create">
-</form>
+  <p>
+  	<%= form.label :test_id %>:
+  	<%= form.collection_select :test_id, Test.all, :id, :title, prompt: true %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
