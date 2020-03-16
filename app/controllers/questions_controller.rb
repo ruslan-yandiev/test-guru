@@ -23,18 +23,13 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    # @question = @test.questions.new
   end
 
   def edit
   end
 
   def destroy
-  	if questions.delete
-      render Question.all.each.with_index { |i, q| "#{i}) #{q}" }
-    else
-      render plain: 'Что-то не так!'
-    end
+    redirect_to @question.test if @question.destroy
   end
 
   private
