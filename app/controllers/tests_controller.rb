@@ -41,6 +41,16 @@ class TestsController < ApplicationController
     end
   end
 
+  def destroy
+    @test = Test.find(params[:id])
+
+    # destroy удалит объект из БД, но объект в оперативной памяти останется 
+    # и мы можем обратиться к нему к примеру, чтобы отобразить какой тест удален
+    @test.destroy
+    redirect_to tests_path
+
+  end
+
   private
 
   # стронг параметры, для защиты. Рельсы обязуют.
