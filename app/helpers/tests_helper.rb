@@ -19,4 +19,8 @@ module TestsHelper
   	# 	'hero'
   	# end
   end
+
+  def test_question(test)
+    test.questions.size
+  end
 end
