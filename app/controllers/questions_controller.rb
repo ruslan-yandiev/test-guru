@@ -5,11 +5,12 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
 
-  def show
-  end
+  def show; end
 
   def create
-    if @test.questions.create(question_params)
+    @question = @test.questions.new(question_params)
+
+    if @question.save
       redirect_to @test
     else
       render :new
