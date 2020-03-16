@@ -11,7 +11,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-  	render json: { question: @question }
   end
 
   def create
