@@ -1,0 +1,15 @@
+<!-- Rails сам использует итерацию (each) локальную переменную test
+итерируя инстанс переменную @tests содержащую ссылку на специальный массив -->
+<tr>
+  <td><%= test.title %></td>
+  <td><%= test_level(test) %></td>
+  <td><%= link_to 'Show', test_path(test) %></td>
+  <td><%= link_to 'Edit', edit_test_path(test) %></td>
+  <td><%= link_to 'Delete', test_path(test), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= test_question(test) %></td>
+</tr>
+<!-- добавили ссылки для просмотра и редактирования конкретного теста
+и для точного пути к конкретному объекту тест передали его в аргумент
+методу роутинга. -->
+
+<!-- создали свой хелпер test_level переводящий числа в слова сложности теста -->
