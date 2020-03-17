@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   root 'tests#index'
  
   resources :tests do
-  	resources :questions, shallow: true, except: :index # исключим создание маршрута index для questions
+  	# исключим создание маршрута index для questions
+  	# с помощью shallow: true будет создан более краткий маршрут
+  	resources :questions, shallow: true, except: :index do
+  	  # исключим создание маршрута index для questions
+  	  # с помощью shallow: true будет создан более краткий маршрут
+  	  resources :answers, shallow: true, except: :index
+  	end
   end
 
   # resources :account
