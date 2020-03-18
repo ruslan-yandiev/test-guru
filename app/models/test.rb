@@ -3,8 +3,10 @@ class Test < ApplicationRecord
 
   belongs_to :category, optional: true
   belongs_to :author, class_name: 'User', foreign_key: :author_id
-  has_many :user_connection_tests, dependent: :destroy
-  has_many :users, through: :user_connection_tests
+
+  # реализует многие ко многим но только через промежуточную модель и таблицу
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
   has_many :questions, dependent: :destroy
 
   validates :title, presence: true
