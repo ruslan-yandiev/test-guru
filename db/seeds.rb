@@ -26,7 +26,7 @@ Answer.create!([
                { body: 'Брахиозавр', question: questions[0] }
 ])
 
-UserConnectionTest.create([
+TestPassage.create([
                { user: user, test: tests[0] },
                { user: user, test: tests[1] },
                { user: user, test: tests[2] },
