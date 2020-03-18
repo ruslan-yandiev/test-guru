@@ -10,6 +10,21 @@ Rails.application.routes.draw do
   	  # с помощью shallow: true будет создан более краткий маршрут
   	  resources :answers, shallow: true, except: :index
   	end
+
+    # для конкретного теста 
+    member do
+      post :start
+    end
+  end
+
+  # маршрут должен выглядить примерно так: GET /test_passages/101/result
+  resources :test_passages, only: %i[show update] do
+    # экшн(метод) result относится к конкретному ресурсу, а не коллекции
+    # и по этому используем спец. метод member и передадим ему блок и получаем маршрут
+    # который будет обслуживать URL: GET /test_passages/101/result
+    member do
+      get :result
+    end
   end
 
   # resources :account
