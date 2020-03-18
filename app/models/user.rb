@@ -7,7 +7,6 @@ class User < ApplicationRecord
   # has_and_belongs_to_many :tests
 
   # также реализует многие ко многим но только через промежуточную модель и таблицу
-  #
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
@@ -18,5 +17,11 @@ class User < ApplicationRecord
 
   def tests_list(value_level)
   	tests.where(level: value_level)
+  end
+
+  def test_passage(test)
+    # найдем тот объект test_passages который соответствует конкретному тесту
+    # но для начала отсортируем объекты в обратном порядке, чтобы получить самый последний из созданных.
+    test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 end

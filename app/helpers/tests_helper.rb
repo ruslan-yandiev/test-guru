@@ -20,7 +20,7 @@ module TestsHelper
   	# end
   end
 
-  def test_question(test)
+  def test_questions_count(test)
     test.questions.size
   end
 end
