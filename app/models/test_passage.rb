@@ -5,12 +5,42 @@ class TestPassage < ApplicationRecord
   # class_name: 'Question' что бы он связал ассоциацию и объект(класс-модел)
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  # сделаем валидацию которая будет проверять и устанавливать значение текущего вопроса
+  # вызовем хук который реализует валидацию и передадим опцию только для создания нового объекта TestPassage
   before_validation :before_validation_set_first_question, on: :create
+
+  def completed?
+  	current_question.nil?
+  end
+
+  def accept!(answer_ids)
+  	if correct_answer?(answer_ids)
+  	  self.correct_questions += 1
+  	end
+
+  	self.current_question = next_question
+  	save!
+  end
 
   private
 
+  # при старте прохождения теста присвоить объекту класса TestPassage первый вопрос который в этом тесте содержится
   def before_validation_set_first_question
   	self.current_question = test.questions.first if test.present?
+  end
+
+  def correct_answer?(answer_ids)
+  	correct_answers_count = correct_answers.count
+
+  	(correct_answers_count == correct_answers.where(id: answer_ids).count) &&
+  	correct_answers_count == answer_ids.count
+  end
+
+  def correct_answers
+  	#  это инициализированный нами scope или проще объект класса Proc
+  	current_question.answers.true_answer
+  end
+
+  def next_question
+  	test.questions.order(:id).where('id > ?', current_question.id).first
   end
 end

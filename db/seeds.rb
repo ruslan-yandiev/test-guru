@@ -23,7 +23,11 @@ Answer.create!([
                { body: 'Слон', question: questions[0] },
                { body: 'Дипладок', question: questions[0] },
                { body: 'Синий кит', question: questions[0], correct: true },
-               { body: 'Брахиозавр', question: questions[0] }
+               { body: 'Брахиозавр', question: questions[0] },
+               { body: 'Слон', question: questions[2] },
+               { body: 'Шатландский Говнодав', question: questions[2] },
+               { body: 'Гепард', question: questions[2], correct: true },
+               { body: 'Тёща', question: questions[2] }
 ])
 
 TestPassage.create([
