@@ -16,7 +16,8 @@ tests = Test.create!([
 questions = Question.create([
                { body: 'Самое большое животное жившее на земле?', test: tests[2] },
                { body: 'способы укрепить эммунитет?', test: tests[1] },
-               { body: 'Самое быстрое животное жившее на земле из современных?', test: tests[2] }
+               { body: 'Самое быстрое животное жившее на земле из современных?', test: tests[2] },
+               { body: 'Сколько вешать в граммах?', test: tests[2] }
 ])
 
 Answer.create!([
@@ -27,7 +28,11 @@ Answer.create!([
                { body: 'Слон', question: questions[2] },
                { body: 'Шатландский Говнодав', question: questions[2] },
                { body: 'Гепард', question: questions[2], correct: true },
-               { body: 'Тёща', question: questions[2] }
+               { body: 'Тёща', question: questions[2] },
+               { body: '100 грамм', question: questions[3] },
+               { body: '200 грамм', question: questions[3] },
+               { body: 'В граммах лучше не вешать', question: questions[3] },
+               { body: 'Вопрос не имеет смысла', question: questions[3], correct: true  }
 ])
 
 TestPassage.create([

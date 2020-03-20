@@ -8,6 +8,9 @@ class TestPassage < ApplicationRecord
   # вызовем хук который реализует валидацию и передадим опцию только для создания нового объекта TestPassage
   before_validation :before_validation_set_first_question, on: :create
 
+  #назначение следующего вопроса с помощью обратного вызова
+  before_update :before_update_next_question
+
   def completed?
   	current_question.nil?
   end
@@ -17,7 +20,6 @@ class TestPassage < ApplicationRecord
   	  self.correct_questions += 1
   	end
 
-  	self.current_question = next_question
   	save!
   end
 
@@ -36,11 +38,11 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answers
-  	#  это инициализированный нами scope или проще объект класса Proc
+  	# true_answer это инициализированный нами scope или проще объект класса Proc
   	current_question.answers.true_answer
   end
 
-  def next_question
-  	test.questions.order(:id).where('id > ?', current_question.id).first
+  def before_update_next_question
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
   end
 end
