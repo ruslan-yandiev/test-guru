@@ -8,7 +8,7 @@ class TestPassage < ApplicationRecord
   # вызовем хук который реализует валидацию и передадим опцию только для создания нового объекта TestPassage
   before_validation :before_validation_set_first_question, on: :create
 
-  #назначение следующего вопроса с помощью обратного вызова
+  # назначение следующего вопроса с помощью обратного вызова
   before_update :before_update_next_question
 
   def completed?
@@ -23,6 +23,18 @@ class TestPassage < ApplicationRecord
   	save!
   end
 
+  def count_questions
+    test.questions.count
+  end
+
+  def percent_result
+    @correct_questions = correct_questions * 100 / count_questions
+  end
+
+  def final_result
+    
+  end
+
   private
 
   # при старте прохождения теста присвоить объекту класса TestPassage первый вопрос который в этом тесте содержится
@@ -30,11 +42,14 @@ class TestPassage < ApplicationRecord
   	self.current_question = test.questions.first if test.present?
   end
 
+  # проверим правильность ответа
   def correct_answer?(answer_ids)
-  	correct_answers_count = correct_answers.count
+  	# correct_answers_count = correct_answers.count
 
-  	(correct_answers_count == correct_answers.where(id: answer_ids).count) &&
-  	correct_answers_count == answer_ids.count
+  	# (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
+  	# correct_answers_count == answer_ids.count
+
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
   def correct_answers
