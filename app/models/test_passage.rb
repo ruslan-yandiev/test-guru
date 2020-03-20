@@ -28,11 +28,11 @@ class TestPassage < ApplicationRecord
   end
 
   def percent_result
-    @correct_questions = correct_questions * 100 / count_questions
+    correct_questions * 100 / count_questions
   end
 
   def final_result
-    @final = if @correct_questions >= 85
+    @final = if percent_result >= 85
       'You have successfully passed the test'
     else
       'you failed the test'
@@ -48,11 +48,6 @@ class TestPassage < ApplicationRecord
 
   # проверим правильность ответа
   def correct_answer?(answer_ids)
-  	# correct_answers_count = correct_answers.count
-
-  	# (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
-  	# correct_answers_count == answer_ids.count
-
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
