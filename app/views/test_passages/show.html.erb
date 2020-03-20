@@ -1,8 +1,10 @@
-<h1>Passing <%= @test_passage.test.title %> Test</h1>
+<h1> Passing <%= @test_passage.test.title %> Test </h1>
 
-<b>
-	<%= @test_passage.current_question.body %>
-</b>
+<b> <%= @test_passage.current_question.body %> </b>
+
+<p> Всего вопросов: <%= @test_passage.test.questions.count %> </p>
+
+<p> Тукущий вопрос: <%= @test_passage.current_question_number %> </p>
 
 <!-- вместо модели(model:) передадим конкретный url через хелпер роутинга на который отправим данную форму
 так как хотим отправить непривязанные к конкретной модели данные -->

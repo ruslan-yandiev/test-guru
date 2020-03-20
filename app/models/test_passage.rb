@@ -39,6 +39,10 @@ class TestPassage < ApplicationRecord
     end
   end
 
+  def current_question_number
+    test.questions.where('id <= ?', current_question.id).count
+  end
+
   private
 
   # при старте прохождения теста присвоить объекту класса TestPassage первый вопрос который в этом тесте содержится
