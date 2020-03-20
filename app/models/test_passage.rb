@@ -32,7 +32,11 @@ class TestPassage < ApplicationRecord
   end
 
   def final_result
-    
+    @final = if @correct_questions >= 85
+      'You have successfully passed the test'
+    else
+      'you failed the test'
+    end
   end
 
   private
