@@ -27,14 +27,6 @@ class TestPassage < ApplicationRecord
     correct_questions * 100 / count_questions
   end
 
-  def final_result
-    @final = if percent_result >= 85
-      'You have successfully passed the test'
-    else
-      'you failed the test'
-    end
-  end
-
   def current_question_number
     test.questions.where('id <= ?', current_question.id).count
   end
