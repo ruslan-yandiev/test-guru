@@ -11,10 +11,8 @@ Rails.application.routes.draw do
   	  resources :answers, shallow: true, except: :index
   	end
 
-    # для конкретного теста 
-    member do
-      post :start
-    end
+    # для конкретного теста
+      post :start, on: :member
   end
 
   # маршрут должен выглядить примерно так: GET /test_passages/101/result

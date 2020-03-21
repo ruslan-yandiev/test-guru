@@ -22,6 +22,7 @@ class User < ApplicationRecord
   def test_passage(test)
     # найдем тот объект test_passages который соответствует конкретному тесту
     # но для начала отсортируем объекты в обратном порядке, чтобы получить самый последний из созданных.
-    test_passages.order(id: :desc).find_by(test_id: test.id)
+    # test_passages.order(id: :desc).find_by(test_id: test.id)
+    test_passages.order(id: :desc).find_by(test: test)
   end
 end

@@ -1,6 +1,6 @@
 <h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
 
-<div class="red_or_green <%= @test_passage.percent_result >= 85 ? 'right' : 'not_true' %>">
+<div class="red_or_green <%= red_or_green! %>">
   <p>
 	<%= final_result %> <br>
 	<%= @test_passage.percent_result %>% true answers
