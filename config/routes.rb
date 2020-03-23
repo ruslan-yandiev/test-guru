@@ -3,7 +3,26 @@ Rails.application.routes.draw do
   root 'tests#index'
  
   resources :tests do
-  	resources :questions, shallow: true, except: :index # исключим создание маршрута index для questions
+  	# исключим создание маршрута index для questions
+  	# с помощью shallow: true будет создан более краткий маршрут
+  	resources :questions, shallow: true, except: :index do
+  	  # исключим создание маршрута index для questions
+  	  # с помощью shallow: true будет создан более краткий маршрут
+  	  resources :answers, shallow: true, except: :index
+  	end
+
+    # для конкретного теста
+      post :start, on: :member
+  end
+
+  # маршрут должен выглядить примерно так: GET /test_passages/101/result
+  resources :test_passages, only: %i[show update] do
+    # экшн(метод) result относится к конкретному ресурсу, а не коллекции
+    # и по этому используем спец. метод member и передадим ему блок и получаем маршрут
+    # который будет обслуживать URL: GET /test_passages/101/result
+    member do
+      get :result
+    end
   end
 
   # resources :account
