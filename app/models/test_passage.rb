@@ -31,6 +31,14 @@ class TestPassage < ApplicationRecord
     test.questions.where('id <= ?', current_question.id).count
   end
 
+  def success?
+    if percent_result >= 85
+      true
+    else
+      false
+    end
+  end
+
   private
 
   def before_validation_set_next_question
@@ -43,11 +51,7 @@ class TestPassage < ApplicationRecord
 
   # проверим правильность ответа
   def correct_answer?(answer_ids)
-    if answer_ids.nil?
-      false
-    else
-      correct_answers.ids.sort == answer_ids.map(&:to_i).sort
-    end
+    correct_answers.ids.sort == Array(answer_ids).map(&:to_i).sort
   end
 
   def correct_answers
