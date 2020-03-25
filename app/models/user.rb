@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :existing_tests, class_name: 'Test', foreign_key: :author_id
 
   validates :email, presence: true, length: { minimum: 5 }
-  validates :password, presence: true, length: { minimum: 5 }
+  validates :password_digest, presence: true, length: { minimum: 5 }
 
   def tests_list(value_level)
   	tests.where(level: value_level)
