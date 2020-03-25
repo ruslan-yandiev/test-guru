@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/new'
   # однохренственно root to: 'tests#index'
   root 'tests#index'
+
+  # укажем signup, чтобы пользователь вводил путь не users/new а signup
+  get :signup, to: 'users#new'
+
+  resources :users, only: :create
  
   resources :tests do
   	# исключим создание маршрута index для questions
