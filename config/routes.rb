@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/new'
+  # get 'sessions/new'
+  # get 'users/new'
+
   # однохренственно root to: 'tests#index'
   root 'tests#index'
 
@@ -7,7 +9,11 @@ Rails.application.routes.draw do
   get :signup, to: 'users#new'
 
   resources :users, only: :create
- 
+
+  get :login, to: 'sessions#new'
+
+  resources :sessions, only: :create
+
   resources :tests do
   	# исключим создание маршрута index для questions
   	# с помощью shallow: true будет создан более краткий маршрут
