@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     unless current_user
       redirect_to login_path, alert: "Are you a Guru? Verify your Email and Password"
     end
+
+    # если пользователь будет найден то вызовем метод email, если не найден то с помощь &
+    # обрабатываем эту ситуацию и присваиваем значение nil, для избежания ошибки  
+    cookies[:email] = current_user&.email
   end
 
   def current_user
