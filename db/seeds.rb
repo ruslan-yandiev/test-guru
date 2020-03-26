@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-user = User.create!(email: 'cool-net@yandex.ru', password_digest: 'my_password')
+user = User.create!(email: 'cool-net@yandex.ru', password: 'my_password')
 
-user2 = User.create!(email: 'cool-net2@yandex.ru', password_digest: 'my_password2')
+user2 = User.create!(email: 'cool-net2@yandex.ru', password: 'my_password2')
 
 categories = Category.create!([{ title: 'Люди' }, { title: 'Животные' }])
 
