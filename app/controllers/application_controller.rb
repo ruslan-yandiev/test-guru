@@ -10,8 +10,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
   	# будем осуществлять перенапраяление на страницу с логином за исключением когда объект текущего пользователя найден
     unless current_user
-      cookies[:redirect_url] = request.url
-      redirect_to(login_path, alert: 'Verify login and password please')
+      redirect_to login_path, alert: "Are you a Guru? Verify your Email and Password"
     end
   end
 

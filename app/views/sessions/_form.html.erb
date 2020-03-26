@@ -1,7 +1,12 @@
 <%= form_with url: sessions_path, local: true do |form| %>
-  <%# if flash[:alert] %>
-    <%#= content_tag :p, flash[:alert], class: 'flash alert' %>
-  <%# end %>
+
+<!--   Будем проверять и если в flash под ключем :alert установлены какие то данные
+  то мы будем эти данные выводить -->
+  <% if flash[:alert] %>
+  <!-- подход с использованием метода content_tag удобен тем, что мы сможем вынести в дальнейшем
+   код в хелпер указав просто хелпер к примеру --> <%#= flash_massage(:alert) %>
+    <%= content_tag :p, flash[:alert], class: 'flash alert' %>
+  <% end %>
 
   <p>
   	<%= form.label :email %> <br>
