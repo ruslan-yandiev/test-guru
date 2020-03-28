@@ -7,14 +7,12 @@ Rails.application.routes.draw do
 
   # укажем signup, чтобы пользователь вводил путь не users/new а signup
   get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
+  delete :logout, to: 'sessions#destroy'
 
   resources :users, only: :create
-
-  get :login, to: 'sessions#new'
-
   resources :sessions, only: :create
 
-  delete :logout, to: 'sessions#destroy'
 
   resources :tests do
   	# исключим создание маршрута index для questions
