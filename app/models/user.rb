@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
 
+  validates :email, presence: true, format: { with: /\A[\w.-]+@[\w.-]+\.[\w.-]+\z/ }, uniqueness: true
+
   # специальный метод подключаемый из gem 'bcrypt'
   # он добавляет ряд валидаций, метод authenticate и еще пару полезных методов
   # но использует библиотеку BCrypt
