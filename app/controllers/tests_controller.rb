@@ -50,10 +50,10 @@ class TestsController < ApplicationController
   def start
     # добавим выбранному пользователю, через вызов метода ассоциации tests и использовав метод push в его
     # спец массив(коллекцию) ActiveRecord::Associations::CollectionProxy [] выбранный тест
-    @user.tests.push(@test)
+    current_user.tests.push(@test)
     # нужно создать в модели User метод test_passage чтобы получить не коллекцию, а конкретный объект класса TestPassage
     # перенапрявим на последний факт прохождения теста.
-    redirect_to @user.test_passage(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
