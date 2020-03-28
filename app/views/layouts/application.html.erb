@@ -14,10 +14,7 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p>
-    <% end %>
-
+    <%= render 'shared/top' %>
     <!-- Вызывает блок из ActionView, и будет рендериться соответственный шаблон согласно соглашению Rails -->
     <%= yield %>
     <%= render 'shared/footer'%>
