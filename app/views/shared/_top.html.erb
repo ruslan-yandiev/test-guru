@@ -1,0 +1,9 @@
+<% if logged_in? %>
+	<div class="nav user">
+	  <p>Welcome, <b><%= current_user.email %></b> Guru</p>
+	  
+	  <%= link_to 'TestGuru', root_path %>
+	  |
+	  <%= link_to 'Logout', logout_path, method: :delete %>
+	</div>
+<% end %>
