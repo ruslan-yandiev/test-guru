@@ -5,12 +5,14 @@ class ApplicationController < ActionController::Base
   # метод класса позволяющий сделать методы экземпляра доступными как в нутри контроллеров так и в шаблонах
   helper_method :current_user, :logged_in?
 
+  before_action :authenticate_user!
+
   private
 
   def authenticate_user!
   	# будем осуществлять перенапраяление на страницу с логином за исключением когда объект текущего пользователя найден
     unless current_user
-      redirect_to login_path, alert: "Are you a Guru? Verify your Email and Password"
+      redirect_to login_path, alert: "Are you a Guru? Verify your Email and Password!!!"
     end
 
     # если пользователь будет найден то вызовем метод email, если не найден то с помощь &
