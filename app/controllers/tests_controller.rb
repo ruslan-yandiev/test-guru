@@ -1,7 +1,8 @@
 class TestsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_test, only: %i[show edit update destroy start]
   before_action :set_user, only: :start
+
+  rescue_from ActiveRecord::RecordNotFound, with: :test_not_found
 
   def index
     @tests = Test.all
@@ -70,5 +71,9 @@ class TestsController < ApplicationController
   # стронг параметры, для защиты. Рельсы обязуют.
   def test_params
   	params.require(:test).permit(:title, :level, :category_id)
+  end
+
+  def test_not_found
+    render file: 'public/404.html', status: :not_found
   end
 end
