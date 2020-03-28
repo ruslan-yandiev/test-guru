@@ -12,9 +12,14 @@ class SessionsController < ApplicationController
   	if user&.authenticate(params[:password])
   	  # метод для работы с пользовательскими сессиями, похож на хэш, а значит можем присваивать значение ключу
   	  session[:user_id] = user.id
-  	  redirect_to root_path
-  	  # с помощью метода session мы в дальнейшем сможем проверить есть ли у нас идентификатор пользователя в сессии в куки 
-  	  # и понять можем ли мы идентифицировать пользователя или нет.
+  	  redirect_to cookies.delete(:current_path) || root_path
+  	  
+  	  # как вариант
+  	  # redirect_to cookies[:current_path] || root_path
+
+  	  # как вариант при session[:current_path] = request.url
+  	  # redirect_to(session.delete(:current_path) || root_path)
+  	  # redirect_to session[:current_path] || root_path
   	else
   	  # флэш основан на механизме куков. Метод flash схож с хэшом
   	  # метод now позволит отобразить флэш в рамках одного запроса лишь один раз
