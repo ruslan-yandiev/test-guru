@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  # get 'sessions/new'
-  # get 'users/new'
-
   # однохренственно root to: 'tests#index'
   root 'tests#index'
 
