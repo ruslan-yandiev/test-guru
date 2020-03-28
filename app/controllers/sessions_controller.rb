@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  skip_before_action :authenticate_user!
+
+  def new; end
 
   def create
   	user = User.find_by(email: params[:email])
@@ -11,7 +12,7 @@ class SessionsController < ApplicationController
   	if user&.authenticate(params[:password])
   	  # метод для работы с пользовательскими сессиями, похож на хэш, а значит можем присваивать значение ключу
   	  session[:user_id] = user.id
-  	  redirect_to tests_path
+  	  redirect_to root_path
   	  # с помощью метода session мы в дальнейшем сможем проверить есть ли у нас идентификатор пользователя в сессии в куки 
   	  # и понять можем ли мы идентифицировать пользователя или нет.
   	else
