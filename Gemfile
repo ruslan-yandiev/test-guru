@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -54,3 +54,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails-i18n'
+
+# мощный гем позволяющий делать аутоинтификацию с огромным функционалом https://github.com/heartcombo/devise
+gem "devise", "~> 4.7" # локализация https://github.com/heartcombo/devise/wiki/I18n
+
+# Русский перевод для https://github.com/plataformatec/devise/tree/v4.7.1
+gem "devise-i18n", "~> 1.9" # настройки для локализации https://github.com/heartcombo/devise/wiki/I18n
