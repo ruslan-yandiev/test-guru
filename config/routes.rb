@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   # однохренственно root to: 'tests#index'
   root 'tests#index'
- 
+
+  # укажем signup, чтобы пользователь вводил путь не users/new а signup
+  get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
+  delete :logout, to: 'sessions#destroy'
+
+  resources :users, only: :create
+  resources :sessions, only: :create
+
+
   resources :tests do
   	# исключим создание маршрута index для questions
   	# с помощью shallow: true будет создан более краткий маршрут
@@ -12,7 +21,7 @@ Rails.application.routes.draw do
   	end
 
     # для конкретного теста
-      post :start, on: :member
+    post :start, on: :member
   end
 
   # маршрут должен выглядить примерно так: GET /test_passages/101/result
@@ -20,9 +29,7 @@ Rails.application.routes.draw do
     # экшн(метод) result относится к конкретному ресурсу, а не коллекции
     # и по этому используем спец. метод member и передадим ему блок и получаем маршрут
     # который будет обслуживать URL: GET /test_passages/101/result
-    member do
-      get :result
-    end
+    get :result, on: :member
   end
 
   # resources :account

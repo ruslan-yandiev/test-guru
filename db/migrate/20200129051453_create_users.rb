@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
       t.string :login, limit: 30
-      t.string :password, limit: 30
+      t.string :password
 
       t.timestamps
     end
