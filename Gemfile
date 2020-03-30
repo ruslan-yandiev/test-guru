@@ -59,4 +59,5 @@ gem 'rails-i18n'
 gem "devise", "~> 4.7" # локализация https://github.com/heartcombo/devise/wiki/I18n
 
 # Русский перевод для https://github.com/plataformatec/devise/tree/v4.7.1
+# https://gist.github.com/k1r8r0wn/2d04e83ec79562d5650e
 gem "devise-i18n", "~> 1.9" # настройки для локализации https://github.com/heartcombo/devise/wiki/I18n
