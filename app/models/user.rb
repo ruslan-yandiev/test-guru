@@ -1,6 +1,9 @@
 # frozen_string_literal: true
+require 'digest/sha1' # подключим на всякий случай, хотя по дефолту данная библиотека должна входить в пакет rails
 
 class User < ApplicationRecord
+
+  EMAIL_REGEXP = /\A[\w.-]+@[\w.-]+\.[\w.-]+\z/
   # # используется для соединения через соединительную таблицу (может быть без модели) многие ко многим
   # # где в промежуточной таблице будет только два атрибута(колонки) соединения:
   # # test_id и user_id
@@ -9,11 +12,14 @@ class User < ApplicationRecord
   # также реализует многие ко многим но только через промежуточную модель и таблицу
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
+  has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
 
-  has_many :existing_tests, class_name: 'Test', foreign_key: :author_id
+  validates :email, presence: true, format: { with: EMAIL_REGEXP }, uniqueness: true
 
-  validates :email, presence: true, length: { minimum: 5 }
-  validates :password, presence: true, length: { minimum: 5 }
+  # специальный метод подключаемый из gem 'bcrypt'
+  # он добавляет ряд валидаций, метод authenticate и еще пару полезных методов
+  # но использует библиотеку BCrypt
+  has_secure_password
 
   def tests_list(value_level)
   	tests.where(level: value_level)

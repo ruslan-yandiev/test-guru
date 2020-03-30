@@ -1,0 +1,27 @@
+<!-- настройку опции local: true указали, чтобы в html формате отобразить вывод ошибок
+иначе установленный  gem 'turbolinks' не позволит это сделать в виду его особенностей без спец настройки. -->
+<%= form_with model: @user, local: true do |form| %>
+  <!-- отрендерим представление(паршл) обработки отображения ошибок -->
+  <%= render 'shared/errors', resourse: @user %>
+
+  <p>
+  	<%= form.label :email %> <br>
+    <!--   	хэш id: :user_email в качестве аргумента передали для того, чтобы при клике на слово email курсор 
+  	перебрасывало на поле заполнения email и так мы для html тега imput зададим атрибут id который будет 
+  	иметь то же значение как и для тега label   -->
+    <%= form.text_field :email, id: :user_email %>
+  </p>
+  
+  <p>
+  	<%= form.label :password %> <br>
+  	<!-- password_field вводимое отобразит звездочками -->
+    <%= form.password_field :password, id: :user_password %>
+  </p>
+
+  <p>
+  	<%= form.label :password_confirmation %> <br>
+  	<%= form.password_field :password_confirmation, id: :user_password_confirmation %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
