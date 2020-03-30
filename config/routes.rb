@@ -2,14 +2,8 @@ Rails.application.routes.draw do
   # однохренственно root to: 'tests#index'
   root 'tests#index'
 
-  # укажем signup, чтобы пользователь вводил путь не users/new а signup
-  get :signup, to: 'users#new'
-  get :login, to: 'sessions#new'
-  delete :logout, to: 'sessions#destroy'
-
-  resources :users, only: :create
-  resources :sessions, only: :create
-
+  # метод отвечает за формирование всех необходимых маршрутов для devise, и переименуем URL пути
+    devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
   resources :tests do
   	# исключим создание маршрута index для questions
