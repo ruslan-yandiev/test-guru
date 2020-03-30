@@ -1,6 +1,5 @@
 class TestsController < ApplicationController
   before_action :set_test, only: %i[show edit update destroy start]
-  before_action :set_user, only: :start
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -61,11 +60,6 @@ class TestsController < ApplicationController
 
   def set_test
     @test = Test.find(params[:id])
-  end
-
-  def set_user
-    # возьмем первого из базы пока нет системы регистрации пользователя.
-    @user = User.first
   end
 
   # стронг параметры, для защиты. Рельсы обязуют.
