@@ -1,9 +1,9 @@
-<% if logged_in? %>
+<% if user_signed_in? %>
 	<div class="nav user">
 	  <p>Welcome, <b><%= current_user.email %></b> Guru</p>
 	  
 	  <%= link_to 'TestGuru', root_path %>
 	  |
-	  <%= link_to 'Logout', logout_path, method: :delete %>
+	  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 	</div>
 <% end %>
