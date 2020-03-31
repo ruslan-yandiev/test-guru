@@ -12,14 +12,15 @@
 
 <p>
 	<strong>Questions:</strong>
-	<%= render @test.questions %>
+	<%#= render @test.questions %>
+	<%= render partial: 'questions/question', collection: @test.questions %>
 </p>
 
 
 <!-- в хеплер роутинга edit_test_path передали в качестве аргумента объект
 чтобы он коректно мог найти к нему путь, тоесть того теста который мы просматриваем -->
-<%= link_to 'Back', tests_path %>
+<%= link_to 'Back', admin_tests_path %>
 |
-<%= link_to 'Edit Test', edit_test_path(@test) %>
+<%= link_to 'Edit Test', edit_admin_test_path(@test) %>
 |
-<%= link_to 'Delete Test', test_path(@test), method: :delete %>
+<%= link_to 'Delete Test', admin_test_path(@test), method: :delete %>
