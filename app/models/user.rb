@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+
+  has_many :test_passages, dependent: :destroy
+  has_many :tests, through: :test_passages
+  has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, 
@@ -8,10 +13,6 @@ class User < ApplicationRecord
         :trackable,
         :validatable,
         :confirmable
-
-  has_many :test_passages, dependent: :destroy
-  has_many :tests, through: :test_passages
-  has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
 
   def tests_list(value_level)
   	tests.where(level: value_level)
