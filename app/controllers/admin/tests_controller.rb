@@ -18,12 +18,11 @@ class Admin::TestsController < Admin::BaseController
   def edit; end
 
   def create
-    # создадим экземпляр не сохраняя его в базу и с передачей стронг параметров.
-  	@test = Test.new(test_params)
+    @test = current_user.authored_tests.new(test_params)
 
     # Если объект успешно сохранен в базу то перенаправить на отображение объекта
     if @test.save
-      redirect_to @test
+      redirect_to admin_test_path(@test)
     else
       # указываем, что мы хотим отрендерить шаблон связанный с методо new и сделать только это
       # то есть код самого метода new выполняться не будет!!!
@@ -35,6 +34,8 @@ class Admin::TestsController < Admin::BaseController
   def update
     if @test.update(test_params)
       redirect_to @test
+      # redirect_to admin_test_path(@test)
+
     else
       render :edit
     end
@@ -44,7 +45,8 @@ class Admin::TestsController < Admin::BaseController
     # destroy удалит объект из БД, но объект в оперативной памяти останется 
     # и мы можем обратиться к нему к примеру, чтобы отобразить какой тест удален
     @test.destroy
-    redirect_to tests_path
+    redirect_to admin_tests_path
+
   end
 
   # будет отвечать за начало прохождения теста
