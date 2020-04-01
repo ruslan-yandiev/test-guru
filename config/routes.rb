@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'tests#index'
 
   # метод отвечает за формирование всех необходимых маршрутов для devise, и переименуем URL пути
-    devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
+  devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
   resources :tests, only: :index do
   	# исключим создание маршрута index для questions

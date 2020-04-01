@@ -4,6 +4,8 @@ user = User.create!(email: 'cool-net@yandex.ru', password: 'my_password')
 
 user2 = User.create!(email: 'cool-net2@yandex.ru', password: 'my_password2')
 
+User.all.each { |u| u.update(type: 'Admin') }
+
 categories = Category.create!([{ title: 'Люди' }, { title: 'Животные' }])
 
 tests = Test.create!([
