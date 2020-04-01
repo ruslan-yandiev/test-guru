@@ -1,4 +1,4 @@
-<%= link_to 'Create new question', new_test_question_path(@test) %>
+<%= link_to 'Create new question', new_admin_test_question_path(@test) %>
 
 <p>
 	<strong>Title:</strong>
@@ -12,8 +12,7 @@
 
 <p>
 	<strong>Questions:</strong>
-	<%#= render @test.questions %>
-	<%= render partial: 'questions/question', collection: @test.questions %>
+	<%= render @test.questions %>
 </p>
 
 
