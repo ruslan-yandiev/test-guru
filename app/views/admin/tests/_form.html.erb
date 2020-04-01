@@ -27,5 +27,12 @@
   	<%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
 
+  <% unless test.new_record? %>
+    <p>
+      <%= f.label :author %>
+      <%= f.collection_select :author_id, User.all, :id, :email %>
+    </p>
+  <% end %>
+
   <p><%= form.submit %></p>
 <% end %>

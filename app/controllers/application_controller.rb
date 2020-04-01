@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+
   # # https://github.com/heartcombo/devise/wiki/How-To:-Redirect-to-a-specific-page-on-successful-sign-in,-sign-up,-or-sign-out
   def after_sign_in_path_for(user)
     if user.is_a?(Admin)
