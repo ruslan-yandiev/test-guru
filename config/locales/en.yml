@@ -31,7 +31,6 @@
 
 en:
   hello: "Hello world"
-
   helpers:
     submit:
       test:
@@ -44,9 +43,19 @@ en:
         category: 'Category'
         author: 'Author'
 
+  shared:
+    errors:
+      header:
+        one: "%{count} errors detected"
+        other: "%{count} errors detected"
+
   tests:
     index:
       header: "Tricky Tests"
+
+  test_passages:
+    result:
+      header: "The %{title} Test was Completed!"
 
   admin:
     tests:
@@ -54,3 +63,7 @@ en:
         success: "Test was successfully created."
       index:
         header: "Tricky Tests"
+
+  tests_mailer:
+    completed_test:
+      subject: 'You completed the TestGuru test!'
