@@ -31,7 +31,11 @@ class ApplicationController < ActionController::Base
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :password])
   # end
 
+  def default_url_options
+    { locale: I18n.locale }
+  end
+
   def set_locale
-    I18n.locale = I18n.locale_available?(params[:lang]) || I18n.default_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
   end
 end
