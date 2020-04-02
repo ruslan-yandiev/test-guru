@@ -1,25 +1,11 @@
 Rails.application.routes.draw do
-  # однохренственно root to: 'tests#index'
-  root 'tests#index'
+  # однохренственно root 'tests#index'
+  root to: 'tests#index'
 
-  # укажем signup, чтобы пользователь вводил путь не users/new а signup
-  get :signup, to: 'users#new'
-  get :login, to: 'sessions#new'
-  delete :logout, to: 'sessions#destroy'
+  # метод отвечает за формирование всех необходимых маршрутов для devise, и переименуем URL пути
+  devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: 'users/sessions' }
 
-  resources :users, only: :create
-  resources :sessions, only: :create
-
-
-  resources :tests do
-  	# исключим создание маршрута index для questions
-  	# с помощью shallow: true будет создан более краткий маршрут
-  	resources :questions, shallow: true, except: :index do
-  	  # исключим создание маршрута index для questions
-  	  # с помощью shallow: true будет создан более краткий маршрут
-  	  resources :answers, shallow: true, except: :index
-  	end
-
+  resources :tests, only: :index do
     # для конкретного теста
     post :start, on: :member
   end
@@ -32,8 +18,11 @@ Rails.application.routes.draw do
     get :result, on: :member
   end
 
-  # resources :account
-  # get '/tests/:category/:title', to: 'tests#search', level: 2
-  # get '/tests/:id/start' to: 'tests#start'
-  # get '/tests/:id/start' to: 'tasks#start'
+  namespace :admin do
+    resources :tests do
+      resources :questions, shallow: true, except: :index do
+        resources :answers, shallow: true, except: :index
+      end
+    end
+  end
 end
