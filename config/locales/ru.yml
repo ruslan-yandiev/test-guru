@@ -8,12 +8,12 @@ ru:
         update: "Обновить Тест"
     label:
       test:
-        title: 'Название'
-        level: 'Уровень'
-        category: 'Категория'
-        author: 'Автор'
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+        author: "Автор"
     select:
-      prompt: 'Выберите категорию'
+      prompt: "Выберите категорию"
 
   shared:
     errors:
@@ -26,12 +26,12 @@ ru:
   tests:
     index:
       header: "Доступные Тесты"
-      questions: 'Вопросов'
-      title: 'Название теста'
-      action: 'Действие'
-      level: 'Уровень'
+      questions: "Вопросов"
+      title: "Название теста"
+      action: "Действие"
+      level: "Уровень"
     test:
-      start: 'Старт'
+      start: "Старт"
 
   test_passages:
     result:
@@ -45,7 +45,29 @@ ru:
         success: "Тест успешно создан."
       index:
         header: "Доступные Тесты"
+        create: "Создать тест"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросов"
+        actions: "Действия"
+      show:
+        header: "Тест %{title}"
+        create: "Создать Вопрос"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросы"
+      new:
+        header: "Создание Теста"
+
+  links:
+    show: "Просмотр"
+    edit: 'Редактировать'
+    back: 'Назад' 
+    delete:
+      title: 'Удалить'
+      confirm: 'Вы уверены?'
+
 
   tests_mailer:
     completed_test:
-      subject: 'Вы успешно завершили тест, на TestGuru!'
+      subject: "Вы успешно завершили тест, на TestGuru!"

@@ -39,10 +39,10 @@ en:
         update: "Update Test"
     label:
       test:
-        title: 'Title'
-        level: 'Level'
-        category: 'Category'
-        author: 'Author'
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        author: "Author"
 
   shared:
     errors:
@@ -54,7 +54,7 @@ en:
     index:
       header: "Tricky Tests"
     test:
-      start: 'Start'
+      start: "Start"
 
   test_passages:
     result:
@@ -68,7 +68,28 @@ en:
         success: "Test was successfully created."
       index:
         header: "Tricky Tests"
+        create: "Create Test"
+        title: "Name"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
+      show:
+        header: "Test %{title}"
+        create: "Create Question"
+        title: "Name"
+        level: "Level"
+        questions: "Questions"
+      new:
+        header: "Creating new Test"
+
+  links:
+    back: 'Back'
+    show: 'Show'
+    edit: 'Edit'
+    delete:
+        title: 'Delete'
+        confirm: 'Are you sure?'
 
   tests_mailer:
     completed_test:
-      subject: 'You completed the TestGuru test!'
+      subject: "You completed the TestGuru test!"

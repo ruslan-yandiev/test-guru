@@ -1,25 +1,27 @@
-<%= link_to 'Create new question', new_admin_test_question_path(@test) %>
+<h1><%= t('.header', title: @test.title) %></h1>
+
+<%= link_to t('.create'), new_admin_test_question_path(@test) %>
 
 <p>
-	<strong>Title:</strong>
+	<strong><%= t('.title') %>:</strong>
 	<%= @test.title %>
 </p>
 
 <p>
-	<strong>Level:</strong>
+	<strong><%= t('.level') %>:</strong>
 	<%= @test.level %>
 </p>
 
 <p>
-	<strong>Questions:</strong>
+	<strong><%= t('.questions') %>:</strong>
 	<%= render @test.questions %>
 </p>
 
 
 <!-- в хеплер роутинга edit_test_path передали в качестве аргумента объект
 чтобы он коректно мог найти к нему путь, тоесть того теста который мы просматриваем -->
-<%= link_to 'Back', admin_tests_path %>
+<%= link_to t('links.back'), admin_tests_path %>
 |
-<%= link_to 'Edit Test', edit_admin_test_path(@test) %>
+<%= link_to t('links.edit'), edit_admin_test_path(@test) %>
 |
-<%= link_to 'Delete Test', admin_test_path(@test), method: :delete %>
+<%= link_to t('links.delete.title'), admin_test_path(@test), method: :delete, data: { confirm: t('links.delete.confirm') } %>
