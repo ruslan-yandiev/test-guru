@@ -1,0 +1,6 @@
+ru:
+  hello: "Привет Мир"
+
+  tests:
+    index:
+      header: "Доступные Тесты"
