@@ -7,5 +7,5 @@
   <td><%= link_to t('links.show'), admin_test_path(test) %></td>
   <td><%= link_to t('links.edit'), edit_admin_test_path(test) %></td>
 
-  <td><%= link_to t('links.delete'), admin_test_path(test), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to t('links.delete.title'), admin_test_path(test), method: :delete, data: { confirm: t('links.delete.confirm') } %></td>
 </tr>
