@@ -12,6 +12,8 @@ ru:
         level: 'Уровень'
         category: 'Категория'
         author: 'Автор'
+    select:
+      prompt: 'Выберите категорию'
 
   shared:
     errors:
@@ -24,6 +26,12 @@ ru:
   tests:
     index:
       header: "Доступные Тесты"
+      questions: 'Вопросов'
+      title: 'Название теста'
+      action: 'Действие'
+      level: 'Уровень'
+    test:
+      start: 'Старт'
 
   test_passages:
     result:

@@ -31,6 +31,7 @@
 
 en:
   hello: "Hello world"
+  
   helpers:
     submit:
       test:
@@ -52,6 +53,8 @@ en:
   tests:
     index:
       header: "Tricky Tests"
+    test:
+      start: 'Start'
 
   test_passages:
     result:
