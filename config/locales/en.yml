@@ -59,6 +59,8 @@ en:
   test_passages:
     result:
       header: "The %{title} Test was Completed!"
+    show:
+      header: "Passing %{title} test!"
 
   admin:
     tests:
