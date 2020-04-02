@@ -1,0 +1,13 @@
+<h1><%= question_header(@question) %></h1>
+
+<%= form_with model: [:admin, @test, @question], local: true do |form| %>
+  <!-- отрендерим представление(паршл) обработки отображения ошибок -->
+  <%= render 'shared/errors', resourse: @question %>
+
+  <p>
+  	<%= form.label :body %> <br>
+    <%= form.text_field :body, id: :question_body %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>

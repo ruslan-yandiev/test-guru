@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -40,6 +40,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  
+  # гем позволяет при отправке сообщения на подтверждения почты при регистрации в нашем приложении перехватывать его и не засорять ящик нашей почты. Для этого мы и занесли его в группу развитие.
+  gem "letter_opener" # https://github.com/ryanb/letter_opener
 end
 
 group :test do
@@ -54,3 +57,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails-i18n'
+
+# мощный гем позволяющий делать аутоинтификацию с огромным функционалом https://github.com/heartcombo/devise
+gem "devise", "~> 4.7" # локализация https://github.com/heartcombo/devise/wiki/I18n
+
+# Русский перевод для https://github.com/plataformatec/devise/tree/v4.7.1
+# https://gist.github.com/k1r8r0wn/2d04e83ec79562d5650e
+gem "devise-i18n", "~> 1.9" # настройки для локализации https://github.com/heartcombo/devise/wiki/I18n

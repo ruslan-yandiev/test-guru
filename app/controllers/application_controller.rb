@@ -1,33 +1,31 @@
 class ApplicationController < ActionController::Base
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   # защита от пдделки POST запросов смотреть API
   protect_from_forgery with: :exception
-  
-  # метод класса позволяющий сделать методы экземпляра доступными как в нутри контроллеров так и в шаблонах
-  helper_method :current_user, :logged_in?
 
   before_action :authenticate_user!
 
-  private
+  protected
 
-  def authenticate_user!
-    unless current_user
-      cookies[:current_path] = request.url
-      redirect_to login_path, alert: 'Авторизируйтесь!!!'
+  # # https://github.com/heartcombo/devise/wiki/How-To:-Redirect-to-a-specific-page-on-successful-sign-in,-sign-up,-or-sign-out
+  def after_sign_in_path_for(user)
+    if user.admin?
+      admin_tests_path
+    else
+      super
     end
-
-    # как вариант
-    # unless current_user
-    #   session[:current_path] = request.url
-    #   redirect_to login_path, alert: 'Авторизируйтесь!!!'
-    # end
   end
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password)}
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password, :current_password)}
   end
 
-  #удобно проверить существует ли текущий пользователь или нет
-  def logged_in?
-    current_user.present?
-  end
+  # как вариант
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :password])
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :password])
+  # end
 end

@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-user = User.create!(email: 'cool-net@yandex.ru', password: 'my_password')
+user = User.create!(email: 'cool-net@yandex.ru', password: 'my_password', first_name: 'Ruslan', last_name: 'Yand')
 
-user2 = User.create!(email: 'cool-net2@yandex.ru', password: 'my_password2')
+user2 = User.create!(email: 'cool-net2@yandex.ru', password: 'my_password2', first_name: 'Ruslan2', last_name: 'Yand2')
+
+User.all.each { |u| u.update(type: 'Admin') }
 
 categories = Category.create!([{ title: 'Люди' }, { title: 'Животные' }])
 
