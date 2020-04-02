@@ -33,9 +33,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to @test
-      # redirect_to admin_test_path(@test)
-
+      redirect_to admin_test_path(@test)
     else
       render :edit
     end
@@ -46,17 +44,6 @@ class Admin::TestsController < Admin::BaseController
     # и мы можем обратиться к нему к примеру, чтобы отобразить какой тест удален
     @test.destroy
     redirect_to admin_tests_path
-
-  end
-
-  # будет отвечать за начало прохождения теста
-  def start
-    # добавим выбранному пользователю, через вызов метода ассоциации tests и использовав метод push в его
-    # спец массив(коллекцию) ActiveRecord::Associations::CollectionProxy [] выбранный тест
-    current_user.tests.push(@test)
-    # нужно создать в модели User метод test_passage чтобы получить не коллекцию, а конкретный объект класса TestPassage
-    # перенапрявим на последний факт прохождения теста.
-    redirect_to current_user.test_passage(@test)
   end
 
   private
