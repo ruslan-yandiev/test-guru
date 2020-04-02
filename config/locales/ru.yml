@@ -58,14 +58,27 @@ ru:
         questions: "Вопросы"
       new:
         header: "Создание Теста"
+      edit:
+        header: "Редактировать тест %{title}"
+    questions:
+      new:
+        header: "Добавить новый вопрос для теста %{title}"
+      show:
+        header: "Вопрос к тесту %{title}"
+        id: "Идентификатор теста №%{id}"
+        question: "Вопрос"
+        new answer: "Создать новый ответ"
+        answers: "Ответы"
+      edit:
+        header: "Редактировать вопрос к тесту %{title}"
 
   links:
     show: "Просмотр"
     edit: 'Редактировать'
-    back: 'Назад' 
+    back: 'Назад'
     delete:
-      title: 'Удалить'
-      confirm: 'Вы уверены?'
+      title: "Удалить"
+      confirm: "Вы уверены?"
 
 
   tests_mailer:
