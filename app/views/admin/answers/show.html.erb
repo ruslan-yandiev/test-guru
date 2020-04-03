@@ -1,18 +1,13 @@
-<h1>Question:</h1>
-
-<!-- выведим с помощью метода ассоциации связынный с ответом вопрос -->
 <p>
-	<%= @answer.question.body %>
+	<b><%= t('.question', body: @answer.question.body) %></b>
 </p>
 
 <p>
-	<b>Answer:</b>
-	<%= @answer.body %>
+	<b><%= t('.answer', body: @answer.body) %></b>
 </p>
 
 <p>
-	<b>Correct:</b>
-	<%= @answer.correct %>
+	<b><%= t('.correct') %> <%= t(".#{@answer.correct}") %></b>
 </p>
 
-<%= link_to 'Back', admin_question_path(@answer.question) %>
+<%= link_to t('links.back'), admin_question_path(@answer.question) %>
