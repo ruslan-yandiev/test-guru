@@ -1,3 +1,72 @@
+en:
+  hello: "Hello world"
+  
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        author: "Author"
+    select:
+      prompt: "Please select"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} errors detected"
+        other: "%{count} errors detected"
+
+  tests:
+    index:
+      header: "Tricky Tests"
+    test:
+      start: "Start"
+
+  test_passages:
+    result:
+      header: "The %{title} Test was Completed!"
+    show:
+      header: "Passing %{title} test!"
+
+  admin:
+    tests:
+      create:
+        success: "Test was successfully created."
+      index:
+        header: "Tricky Tests"
+        create: "Create Test"
+        title: "Name"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
+      show:
+        header: "Test %{title}"
+        create: "Create Question"
+        title: "Name"
+        level: "Level"
+        questions: "Questions"
+      new:
+        header: "Creating new Test"
+
+  links:
+    back: "Back"
+    show: "Show"
+    edit: "Edit"
+    login: "Enter"
+    signup: "Signup"
+    delete:
+        title: 'Delete'
+        confirm: 'Are you sure?'
+
+  tests_mailer:
+    completed_test:
+      subject: "You completed the TestGuru test!"
+
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
@@ -28,6 +97,3 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
-
-en:
-  hello: "Hello world"
