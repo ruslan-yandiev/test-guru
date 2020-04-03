@@ -12,6 +12,7 @@ ru:
         level: "Уровень"
         category_id: "Категория"
         author: "Автор"
+        
     select:
       prompt: "Выберите категорию"
 

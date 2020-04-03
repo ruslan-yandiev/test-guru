@@ -12,6 +12,8 @@ en:
         level: "Level"
         category: "Category"
         author: "Author"
+    select:
+      prompt: "Please select"
 
   shared:
     errors:
