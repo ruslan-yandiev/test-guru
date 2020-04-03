@@ -11,13 +11,11 @@
 и передадим хелперу роутинга в аргументы переменную вопроса для коректного пути -->
 <%= link_to t('.new answer'), new_admin_question_answer_path(@question) %>
 
-<!-- <ol> -->
 <p>
 	<!-- отрендерим коллекцию ответов и выведем все ответы вопроса -->
 	<!-- И рельс будет искать фрагмент представления(паршл) _answer в app/views/answers/_answer.html.erb -->
 	<%= render @question.answers %>
 </p>
-<!-- </ol> -->
 
 <%= link_to t('links.edit'), edit_admin_question_path(@question) %>
 |
