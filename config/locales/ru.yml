@@ -1,0 +1,112 @@
+ru:
+  hello: "Привет Мир"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+        author: "Автор"
+        
+    select:
+      prompt: "Выберите категорию"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        orther: "Обнаружено %{count} ошибки"
+    top:
+      logout: "ВЫХОД"
+
+  tests:
+    index:
+      header: "Доступные Тесты"
+      questions: "Вопросов"
+      title: "Название теста"
+      action: "Действие"
+      level: "Уровень"
+    test:
+      start: "Старт"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершён!"
+    show:
+      header: "Прохождение! Тест: %{title}"
+
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан."
+      index:
+        header: "Доступные Тесты"
+        create: "Создать тест"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросов"
+        actions: "Действия"
+      show:
+        header: "Тест %{title}"
+        create: "Создать Вопрос"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросы"
+      new:
+        header: "Создание Теста"
+      edit:
+        header: "Редактировать тест %{title}"
+      top:
+        logout: "Выход"
+    questions:
+      new:
+        header: "Добавить новый вопрос для теста %{title}"
+      show:
+        header: "Вопрос к тесту %{title}"
+        id: "Идентификатор теста №%{id}"
+        question: "Вопрос"
+        new answer: "Создать новый ответ"
+        answers: "Ответы"
+      edit:
+        header: "Редактировать вопрос к тесту %{title}"
+    answers:
+      header: "Ответы к вопросу %{body}"
+      body: "Вопрос: %{body}"
+      show:
+        question: "Вопрос: %{body}"
+        answer: "Ответ: %{body}"
+        correct: "Верно:"
+        true: "Да"
+        false: "Нет"
+      new:
+        header: "Новый отвек к вопросу"
+      edit:
+        header: "Редактирование ответа"
+
+  links:
+    show: "Просмотр"
+    edit: "Редактировать"
+    back: "Назад"
+    add: "Добавть"
+    start: "Начать"
+    login: "Вход"
+    logout: "Выход"
+    signup: "Регистрация"
+    forgot_password: "Забыли пароль?"
+    unlock_instructions: "Аккаунт заблокирован?"
+    confirmation_instructions: "Не получили подтверждение?"
+    delete:
+      title: "Удалить"
+      confirm: "Вы уверены?"
+
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест, на TestGuru!"

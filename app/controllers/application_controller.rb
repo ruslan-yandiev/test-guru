@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  before_action :set_locale
+
   protected
 
   # # https://github.com/heartcombo/devise/wiki/How-To:-Redirect-to-a-specific-page-on-successful-sign-in,-sign-up,-or-sign-out
@@ -28,4 +30,14 @@ class ApplicationController < ActionController::Base
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :password])
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :password])
   # end
+
+  def default_url_options
+    { lang: I18n.locale != I18n.default_locale ? I18n.locale : nil }
+  end
+
+  private
+
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+  end
 end
