@@ -1,8 +1,8 @@
 <li>
   <br><td><%= answer.body %></td><br>
-  <%= link_to 'Show', admin_answer_path(answer) %>
+  <%= link_to t('links.show'), admin_answer_path(answer) %>
   |
-  <%= link_to 'Edit', edit_admin_answer_path(answer) %>
+  <%= link_to t('links.edit'), edit_admin_answer_path(answer) %>
   |
-  <%= link_to 'Delete', admin_answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to t('links.delete.title'), admin_answer_path(answer), method: :delete, data: { confirm: t('links.delete.confirm') } %>
 </li>

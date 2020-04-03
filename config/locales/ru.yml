@@ -22,6 +22,8 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         orther: "Обнаружено %{count} ошибки"
+    top:
+      logout: "ВЫХОД"
 
   tests:
     index:
@@ -60,6 +62,8 @@ ru:
         header: "Создание Теста"
       edit:
         header: "Редактировать тест %{title}"
+      top:
+        logout: "Выход"
     questions:
       new:
         header: "Добавить новый вопрос для теста %{title}"
@@ -71,11 +75,24 @@ ru:
         answers: "Ответы"
       edit:
         header: "Редактировать вопрос к тесту %{title}"
+    answers:
+      header: "Ответы к вопросу %{body}"
+      body: "Вопрос: %{body}"
+      show:
+        question: "Вопрос: %{body}"
+        answer: "Ответ: %{body}"
+        correct: "Верно:"
+        true: "Да"
+        false: "Нет"
+      new:
+        header: "Новый отвек к вопросу"
+      edit:
+        header: "Редактирование ответа"
 
   links:
     show: "Просмотр"
-    edit: 'Редактировать'
-    back: 'Назад'
+    edit: "Редактировать"
+    back: "Назад"
     delete:
       title: "Удалить"
       confirm: "Вы уверены?"
