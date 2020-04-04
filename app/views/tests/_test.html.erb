@@ -1,16 +1,21 @@
-<!-- Rails сам использует итерацию (each) локальную переменную test
-итерируя инстанс переменную @tests содержащую ссылку на специальный массив -->
-<tr>
-  <td><%= test.title %></td>
-  <td><%= test_level(test) %></td>
-  <td><%= test_questions_count(test) %></td>
+<div class="col col-md-4 text-xs-center">
+  <div class="card">
+	  <div class="card-header">
+		<h4><%= test.title %></h4>
+	  </div>
 
-  <!--   хелпер button_to генерит целую форму которую мы направляем по маршруту используя хелпер роутинга 
-  start_test_path(test) и передав конкретный объект в аргумент для точности -->
-  <td><%= button_to t('.start'), start_test_path(test) %></td>
-</tr>
-<!-- добавили ссылки для просмотра и редактирования конкретного теста
-и для точного пути к конкретному объекту тест передали его в аргумент
-методу роутинга. -->
+	  <div class="card-body">
+	  	<p>
+	  	  <%= test_level(test) %>
+	  	</p>
 
-<!-- создали свой хелпер test_level переводящий числа в слова сложности теста
+		<p>
+		  <%= test_questions_count(test) %>
+		</p>
+
+		<div class="card-footer actions">
+		  <%= button_to t('.start'), start_test_path(test), class: "btn btn-primary" %>
+		</div>
+	  </div>
+  </div>
+</div>

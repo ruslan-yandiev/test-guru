@@ -102,6 +102,7 @@ ru:
     forgot_password: "Забыли пароль?"
     unlock_instructions: "Аккаунт заблокирован?"
     confirmation_instructions: "Не получили подтверждение?"
+    next: "Следующий"
     delete:
       title: "Удалить"
       confirm: "Вы уверены?"
