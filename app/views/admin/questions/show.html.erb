@@ -1,24 +1,31 @@
-<h1><%= t('.header', title: @question.test.title) %></h1>
-<p><%= t('.id', id: @question.test_id) %></p>
+<div class="row justify-content-center">
+	<div class="<col col-md-4>">
+		<div class="card-body">
+			<h1 class="text-center"><%= t('.header', title: @question.test.title) %></h1>
+			<p><%= t('.id', id: @question.test_id) %></p>
 
-<p>
-	<strong><%= t('.question') %>:</strong>
-	<%= @question.body %>
-</p>
+			<p>
+				<strong><%= t('.question') %>:</strong>
+				<%= @question.body %>
+			</p>
 
-<h2><%= t('.answers') %>:</h2>
-<!-- сделаем ссылку для получения формы на создание нового ответа на вопрос
-и передадим хелперу роутинга в аргументы переменную вопроса для коректного пути -->
-<%= link_to t('.new answer'), new_admin_question_answer_path(@question) %>
+			<!-- сделаем ссылку для получения формы на создание нового ответа на вопрос
+			и передадим хелперу роутинга в аргументы переменную вопроса для коректного пути -->
+			<%= link_to t('.new answer'), new_admin_question_answer_path(@question), class: "btn btn-success" %><br class="mt-3">
 
-<p>
-	<!-- отрендерим коллекцию ответов и выведем все ответы вопроса -->
-	<!-- И рельс будет искать фрагмент представления(паршл) _answer в app/views/answers/_answer.html.erb -->
-	<%= render @question.answers %>
-</p>
 
-<%= link_to t('links.edit'), edit_admin_question_path(@question) %>
-|
-<%= link_to t('links.back'), admin_test_path(@question.test) %>
-|
-<%= link_to t('links.delete.title'), admin_question_path(@question), method: :delete, data: { confirm: t('links.delete.confirm') } %>
+			<table class='table table-hover table-responsive-sm'>
+				<strong><%= t('.answers') %>:</strong><br class="mt-3">
+				<tbody><br class="mt-3">
+				<!-- отрендерим коллекцию ответов и выведем все ответы вопроса -->
+				<!-- И рельс будет искать фрагмент представления(паршл) _answer в app/views/answers/_answer.html.erb -->
+				<%= render @question.answers %>
+				</tbody>
+			</table>
+
+			<%= link_to t('links.back'), admin_test_path(@question.test), class: 'btn btn-secondary' %>
+			<%= link_to t('links.edit'), edit_admin_question_path(@question), class: 'btn btn-primary' %>
+			<%= link_to t('links.delete.title'), admin_question_path(@question), method: :delete, data: { confirm: t('links.delete.confirm') }, class: 'btn btn-danger' %>
+		</div>
+	</div>
+</div>

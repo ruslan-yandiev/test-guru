@@ -1,27 +1,32 @@
-<h1><%= t('.header', title: @test.title) %></h1>
+<div class="row justify-content-center">
+	<div class="<col col-md-4>">
+		<div class="card-body">
+			<h1 class="text-center"><%= t('.header', title: @test.title) %></h1>
 
-<%= link_to t('.create'), new_admin_test_question_path(@test) %>
+			<p>
+				<strong><%= t('.title') %>:</strong>
+				<%= @test.title %>
+			</p>
 
-<p>
-	<strong><%= t('.title') %>:</strong>
-	<%= @test.title %>
-</p>
+			<p><%= link_to t('.create'), new_admin_test_question_path(@test), class: "btn btn-success" %></p>
 
-<p>
-	<strong><%= t('.level') %>:</strong>
-	<%= @test.level %>
-</p>
+			<p>
+				<strong><%= t('.level') %>:</strong>
+				<%= @test.level %>
+			</p>
+				
+			<table class='table table-hover table-responsive-sm'>
+				<strong><%= t('.questions') %>:</strong>
+				<tbody>
+					<%= render @test.questions %>
+				</tbody>
+			</table>
+			<!-- в хеплер роутинга edit_test_path передали в качестве аргумента объект
+			чтобы он коректно мог найти к нему путь, тоесть того теста который мы просматриваем -->
+			<%= link_to t('links.back'), admin_tests_path, class: 'btn btn-secondary'%>
+			<%= link_to t('links.edit'), edit_admin_test_path(@test), class: 'btn btn-primary' %>
+			<%= link_to t('links.delete.title'), admin_test_path(@test), method: :delete, data: { confirm: t('links.delete.confirm') }, class: 'btn btn-danger' %>
+		</div>
+	</div>
+</div>
 
-<p>
-	<strong><%= t('.questions') %>:</strong>
-	<%= render @test.questions %>
-</p>
-
-
-<!-- в хеплер роутинга edit_test_path передали в качестве аргумента объект
-чтобы он коректно мог найти к нему путь, тоесть того теста который мы просматриваем -->
-<%= link_to t('links.back'), admin_tests_path %>
-|
-<%= link_to t('links.edit'), edit_admin_test_path(@test) %>
-|
-<%= link_to t('links.delete.title'), admin_test_path(@test), method: :delete, data: { confirm: t('links.delete.confirm') } %>

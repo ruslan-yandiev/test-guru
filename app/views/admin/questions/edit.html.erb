@@ -1,5 +1,5 @@
-<h1><%= t('.header', title: @question.test.title) %></h1>
+<h1 class="text-center"><%= t('.header', title: @question.test.title) %></h1>
 
 <%= render 'form' %>
-<%= link_to t('links.back'), admin_tests_path(@question.test) %>
+<%= link_to t('links.back'), admin_test_path(@question.test), class: 'btn btn-secondary' %>
 

@@ -4,8 +4,8 @@
   <td><%= test.title %></td>
   <td><%= test_level(test) %></td>
   <td><%= test_questions_count(test) %></td>
-  <td><%= link_to t('links.show'), admin_test_path(test) %></td>
-  <td><%= link_to t('links.edit'), edit_admin_test_path(test) %></td>
+  <td><%= link_to t('links.show'), admin_test_path(test), class: 'btn btn-primary' %></td>
+  <td><%= link_to t('links.edit'), edit_admin_test_path(test), class: 'btn btn-primary' %></td>
 
-  <td><%= link_to t('links.delete.title'), admin_test_path(test), method: :delete, data: { confirm: t('links.delete.confirm') } %></td>
+  <td><%= link_to t('links.delete.title'), admin_test_path(test), method: :delete, data: { confirm: t('links.delete.confirm') }, class: 'btn btn-danger' %></td>
 </tr>
