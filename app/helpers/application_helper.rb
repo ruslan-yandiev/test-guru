@@ -1,4 +1,7 @@
 module ApplicationHelper
+	
+  AVAILABLE_FLASH = { notice: 'success', alert: 'danger' }
+
   def current_year
     "Current year: #{Time.current.year}"
   end
