@@ -1,9 +1,9 @@
 module TestPassagesHelper
   def final_result
     if @test_passage.success?
-      'You have successfully passed the test'
+      t('.You have successfully passed the test')
     else
-      'you failed the test'
+      t('.You failed the test')
     end
   end
 
