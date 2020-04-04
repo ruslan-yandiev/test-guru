@@ -59,6 +59,7 @@ en:
     edit: "Edit"
     login: "Enter"
     signup: "Signup"
+    next: "Next"
     delete:
         title: 'Delete'
         confirm: 'Are you sure?'
