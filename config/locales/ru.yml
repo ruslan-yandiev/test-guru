@@ -38,7 +38,10 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"
+      header: "Тест %{title}"
+      You have successfully passed the test: "Вы успешно прошли тест"
+      You failed the test: "Вы провалили тест"
+      true answers: "Верных ответов"
     show:
       header: "Прохождение! Тест: %{title}"
 
