@@ -1,13 +1,22 @@
-<p>
-	<b><%= t('.question', body: @answer.question.body) %></b>
-</p>
 
-<p>
-	<b><%= t('.answer', body: @answer.body) %></b>
-</p>
+<div class="row">
+	<div class="<col col-md-4>">
+		<div class="card-body">
+			<table class='table table-hover table-responsive-sm'>
+			<p>
+				<b><%= t('.question', body: @answer.question.body) %></b>
+			</p>
 
-<p>
-	<b><%= t('.correct') %> <%= t(".#{@answer.correct}") %></b>
-</p>
+			<p>
+				<b><%= t('.answer', body: @answer.body) %></b>
+			</p>
 
-<%= link_to t('links.back'), admin_question_path(@answer.question) %>
+			<p>
+				<b><%= t('.correct') %> <%= t(".#{@answer.correct}") %></b>
+			</p>
+			</table>
+
+			<%= link_to t('links.back'), admin_question_path(@answer.question), class: 'btn btn-secondary' %>
+		</div>
+	</div>
+</div>
