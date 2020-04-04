@@ -23,8 +23,10 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         orther: "Обнаружено %{count} ошибки"
-    top:
-      logout: "ВЫХОД"
+    nav:
+      logout: "Выход"
+      admin-panel: "Aдминистрирование" 
+      Welcome: "Добро пожаловать"
 
   tests:
     index:
