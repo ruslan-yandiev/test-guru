@@ -46,6 +46,9 @@ ru:
       true answers: "Верных ответов"
     show:
       header: "Прохождение! Тест: %{title}"
+    gist:
+      success: "Gist успешно сохранён!"
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     tests:

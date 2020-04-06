@@ -32,6 +32,9 @@ en:
       header: "The %{title} Test was Completed!"
     show:
       header: "Passing %{title} test!"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occurred while saving gist"
 
   admin:
     tests:
