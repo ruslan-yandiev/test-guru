@@ -23,8 +23,10 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         orther: "Обнаружено %{count} ошибки"
-    top:
-      logout: "ВЫХОД"
+    nav:
+      logout: "Выход"
+      admin-panel: "Aдминистрирование" 
+      Welcome: "Добро пожаловать"
 
   tests:
     index:
@@ -38,7 +40,10 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"
+      header: "Тест %{title}"
+      You have successfully passed the test: "Вы успешно прошли тест"
+      You failed the test: "Вы провалили тест"
+      true answers: "Верных ответов"
     show:
       header: "Прохождение! Тест: %{title}"
 
@@ -102,6 +107,7 @@ ru:
     forgot_password: "Забыли пароль?"
     unlock_instructions: "Аккаунт заблокирован?"
     confirmation_instructions: "Не получили подтверждение?"
+    next: "Следующий"
     delete:
       title: "Удалить"
       confirm: "Вы уверены?"

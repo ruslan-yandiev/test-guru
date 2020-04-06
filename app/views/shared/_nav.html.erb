@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light bg-light">
+  <strong><%= link_to 'TestGuru', root_path, class: 'navbar-brand' %></strong>
+
+  <div class="navbar navbar-light bg-light">
+    <% if current_user.try(:admin?) %>
+      <b class="btn btn-outline-secondary"><%= link_to t('.admin-panel'), admin_tests_path, class: "nav-link" %></b>
+    <% end %>
+  </div>
+
+  <span class="navbar-text">
+    <% if user_signed_in? %>
+    <%= t(".Welcome") %>, <b class="btn btn-outline-secondary"><%= current_user.email %></b> Guru |
+      <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
+    <% else %>
+      <div class="nav btn-group">
+        <%= link_to t('links.login'), new_session_path(resource_name), class: 'nav-link' %>
+        <%= link_to t('links.signup'), new_registration_path(resource_name), class: 'nav-link' %>
+      </div>
+    <% end %>
+  </span>
+</nav>

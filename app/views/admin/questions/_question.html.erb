@@ -1,8 +1,6 @@
 <tr>
-  <br><td><%= question.body %></td><br>
-  <td><%= link_to t('links.show'), admin_question_path(question) %></td>
-  |
-  <td><%= link_to t('links.edit'), edit_admin_question_path(question) %></td>
-  |
-  <td><%= link_to t('links.delete.title'), admin_question_path(question), method: :delete, data: { confirm: t('links.delete.confirm') } %></td>
+  <td><%= question.body %></td>
+  <td><%= link_to t('links.show'), admin_question_path(question), class: 'btn btn-primary' %></td>
+  <td><%= link_to t('links.edit'), edit_admin_question_path(question), class: 'btn btn-primary' %></td>
+  <td><%= link_to t('links.delete.title'), admin_question_path(question), method: :delete, data: { confirm: t('links.delete.confirm') }, class: 'btn btn-danger' %></td>
 </tr>
