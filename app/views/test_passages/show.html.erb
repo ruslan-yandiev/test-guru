@@ -3,8 +3,10 @@
   <div class="col col-sm-12 col-md-8 card">
     <div class="card-body">
 		<h1><%= t('.header', title: @test_passage.test.title) %></h1>
-
-		<b> <%= @test_passage.current_question.body %> </b>
+		
+		<p>
+			<b> <%= @test_passage.current_question.body %> </b>
+		</p>
 
 		<p> Всего вопросов: <%= @test_passage.test.questions.count %> </p>
 
@@ -21,6 +23,8 @@
 					<%= b.label %>
 				</p>
 			<% end %>
+
+			<p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
 
 		    <div class="actions">
 		      <%= form.submit t('links.next'), class: "btn btn-primary" %>
