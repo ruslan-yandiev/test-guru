@@ -1,24 +1,5 @@
 <h1><%= t('.header') %></h1>
 
-<% if @tests.present? %>
-
-  <table>
-  	<thead>
-  		<tr>
-  			<th><%= t('.title') %></th>
-  			<th><%= t('.level') %></th>
-        <th><%= t('.questions') %></th>
-        <th><%= t('.action') %></th>
-  		</tr>
-  	</thead>
-    
-  	<tbody>
-      <!-- обработаем коллекцию тестов в представлении _test.html.erb
-      Rails сам использует Итератор на коллекции -->
-      <%= render @tests %>
-  	</tbody>
-  </table>
-
-<% else %>
-	<p>You have no tests in progress at this moment.</p>
-<% end %>
+<div class="row">
+  <%= render @tests %>
+</div>

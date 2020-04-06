@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <!-- метатег срабатывает тогда когда наш контент будет отображаться на мобильном устройстве -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>TestGuru</title>
     <!-- метод который возвращает специальный токен который будет передаваться и проверяться вместе с POST запросами для защиты -->
     <%= csrf_meta_tags %>
@@ -14,10 +18,12 @@
   </head>
 
   <body>
-    <%= render 'shared/top' %>
-    <%= render 'shared/flash' %>
-    <!-- Вызывает блок из ActionView, и будет рендериться соответственный шаблон согласно соглашению Rails -->
-    <%= yield %>
-    <%= render 'shared/footer'%>
+    <div class="container">
+      <%= render 'shared/nav' %>
+      <%= render 'shared/flash' %>
+      <!-- Вызывает блок из ActionView, и будет рендериться соответственный шаблон согласно соглашению Rails -->
+      <%= yield %>
+      <%= render 'shared/footer'%>
+    </div>
   </body>
 </html>

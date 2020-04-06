@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <!-- метатег срабатывает тогда когда наш контент будет отображаться на мобильном устройстве -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin Panel</title>
 
     <%= csrf_meta_tags %>
@@ -12,9 +15,11 @@
   </head>
 
   <body>
-    <%= render 'admin/tests/top' %>
-    <%= render 'shared/flash' %>
-    <%= yield %>
-    <%= render 'shared/footer'%>
+    <div class="container">
+      <%= render 'admin/tests/nav' %>
+      <%= render 'shared/flash' %>
+      <%= yield %>
+      <%= render 'shared/footer'%>
+    </div>
   </body>
 </html>
