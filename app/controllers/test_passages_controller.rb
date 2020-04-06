@@ -1,7 +1,7 @@
 class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :set_test_passage, only: %i[show update result gist]
 
   # метод будет получать форму для ответа на текущий вопрос
   # отступим немного от архитектуры REST 
@@ -9,6 +9,18 @@ class TestPassagesController < ApplicationController
 
   # для показа результата прохождения теста
   def result; end
+
+  def gist
+    result = GistQuestionService.new(@test_passage.current_question).call
+
+    flash_options = if result.success?
+      { notice: t('.success') }
+    else
+      { alert: t('.failere') }
+    end
+
+    redirect_to @test_passage, flash_options
+  end
 
   # для сохранения факта прохождения конкретного вопроса и зваимодействия с моделью TestPassage
   # чтобы проверить верно ли ответил пользователь на вопрос или нет и если верно увеличить
