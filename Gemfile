@@ -32,6 +32,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  
+  # для работы с переменными окружения
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -64,6 +67,9 @@ gem "devise", "~> 4.7" # локализация https://github.com/heartcombo/de
 
 #NETWORKING
 gem 'faraday'
+
+# Github client
+gem 'octokit'
 
 # Русский перевод для https://github.com/plataformatec/devise/tree/v4.7.1
 # https://gist.github.com/k1r8r0wn/2d04e83ec79562d5650e
