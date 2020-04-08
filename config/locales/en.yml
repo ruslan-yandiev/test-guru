@@ -33,7 +33,7 @@ en:
     show:
       header: "Passing %{title} test!"
     gist:
-      success: "Gist was successfully created!"
+      success: "Gist was successfully created: <a href='%{url}' class='btn btn-link' target='_blank'>Gist reference</a>"
       failure: "An error occurred while saving gist"
 
   admin:

@@ -47,7 +47,7 @@ ru:
     show:
       header: "Прохождение! Тест: %{title}"
     gist:
-      success: "Gist успешно сохранён!"
+      success: "Gist успешно сохранён: <a href='%{url}' class='btn btn-link' target='_blank'>Ссылка на Gist</a>"
       failure: "Во время сохранения gist произошла ошибка"
 
   admin:
