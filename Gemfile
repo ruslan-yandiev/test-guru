@@ -33,7 +33,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   
-  # для работы с переменными окружения
+  # для работы с переменными окружения, создав в коре приложения .env (внести его в гит игнор файл)
+  # удобнее чем использовать переменную окружения из операционки
   gem 'dotenv-rails'
 end
 

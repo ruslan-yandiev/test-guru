@@ -19,6 +19,6 @@ module TestGuru
 
     # autoload_paths массив содержащий в себе все пути которые учитывает Rails при автоматическом
     # поиске и загрузке констант
-    config.autoload_paths << "#{Rails.root}/lib/clients"
+    # config.autoload_paths << "#{Rails.root}/lib/clients"
   end
 end
