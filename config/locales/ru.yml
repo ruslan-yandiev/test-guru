@@ -97,6 +97,11 @@ ru:
         header: "Новый отвек к вопросу"
       edit:
         header: "Редактирование ответа"
+    gists:
+      index:
+        hash: Gist URL
+        link: Вопрос
+        user: Пользователь
 
   links:
     show: "Просмотр"

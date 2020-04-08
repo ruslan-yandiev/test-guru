@@ -29,6 +29,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :gists, only: :index
+    resources :gists, only: %i[index destroy]
   end
 end

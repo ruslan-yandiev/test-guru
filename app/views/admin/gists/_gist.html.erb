@@ -1,0 +1,6 @@
+<tr>
+	<td><%= link_to_question(gist.question) %></td>
+	<td><%= link_to(hash_from_url(gist), gist.url, target:'_blank') %></td>
+	<td><%= gist.user.email %></td>
+	<td><%= link_to t('links.delete.title'), admin_gist_path(gist), method: :delete, data: { confirm: t('links.delete.confirm') }, class: 'btn btn-danger' %></td>
+</tr>
