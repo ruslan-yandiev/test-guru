@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     # который будет обслуживать URL: GET /test_passages/101/result
     member do
       get :result
-
       post :gist
     end
   end
@@ -29,5 +28,7 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
+
+    resources :gists, only: :index
   end
 end
