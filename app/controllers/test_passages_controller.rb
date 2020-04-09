@@ -12,23 +12,20 @@ class TestPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
-
-
-    flash_options = if result
-      url = result['html_url']
-
+    
+    if result.success?
       Gist.create(
         question: @test_passage.current_question,
-        user: current_user,
-        url: url
+        url: result[:html_url],
+        user: current_user
       )
 
-      { notice: t('.success', url: url) }
+      flash[:notice] = t('.success', url: result[:html_url])
     else
-      { alert: t('.failure') }
+      flash[:alert] = t('.failure')
     end
 
-    redirect_to @test_passage, flash_options
+    redirect_to @test_passage
   end
 
   # для сохранения факта прохождения конкретного вопроса и зваимодействия с моделью TestPassage
