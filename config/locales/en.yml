@@ -32,6 +32,9 @@ en:
       header: "The %{title} Test was Completed!"
     show:
       header: "Passing %{title} test!"
+    gist:
+      success: "Gist was successfully created: <a href='%{url}' class='btn btn-link' target='_blank'>Gist reference</a>"
+      failure: "An error occurred while saving gist"
 
   admin:
     tests:
@@ -67,6 +70,11 @@ en:
   tests_mailer:
     completed_test:
       subject: "You completed the TestGuru test!"
+
+
+  services:
+    gist_question_service:
+      description: "A question about %{test} from TestGuru"
 
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other

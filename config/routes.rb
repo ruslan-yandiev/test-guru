@@ -12,10 +12,14 @@ Rails.application.routes.draw do
 
   # маршрут должен выглядить примерно так: GET /test_passages/101/result
   resources :test_passages, only: %i[show update] do
+    
     # экшн(метод) result относится к конкретному ресурсу, а не коллекции
     # и по этому используем спец. метод member и передадим ему блок и получаем маршрут
     # который будет обслуживать URL: GET /test_passages/101/result
-    get :result, on: :member
+    member do
+      get :result
+      post :gist
+    end
   end
 
   namespace :admin do
@@ -24,5 +28,7 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
+
+    resources :gists, only: %i[index destroy]
   end
 end

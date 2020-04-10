@@ -46,6 +46,9 @@ ru:
       true answers: "Верных ответов"
     show:
       header: "Прохождение! Тест: %{title}"
+    gist:
+      success: "Gist успешно сохранён: <a href='%{url}' class='btn btn-link' target='_blank'>Ссылка на Gist</a>"
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     tests:
@@ -94,6 +97,11 @@ ru:
         header: "Новый отвек к вопросу"
       edit:
         header: "Редактирование ответа"
+    gists:
+      index:
+        hash: Gist URL
+        link: Вопрос
+        user: Пользователь
 
   links:
     show: "Просмотр"
@@ -116,3 +124,7 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест, на TestGuru!"
+
+  services:
+    gist_question_service:
+      description: "Вопрос теста %{test} из TestGuru"
