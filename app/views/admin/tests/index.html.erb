@@ -12,25 +12,29 @@
       <% if @tests.present? %>
 
         <table class='table table-hover table-responsive-sm'>
-        	<thead>
-        		<tr>
-        			<th><%= t('.title') %></th>
-        			<th><%= t('.level') %></th>
+          <thead>
+            <tr>
+              <th class="sort-by-title pointer">
+                <%= t('.title') %>
+                <%= octicon 'arrow-up', class: "text-success hide" %>
+                <%= octicon 'arrow-down', class: "text-success hide" %>   
+              </th>
+              <th><%= t('.level') %></th>
               <th><%= t('.questions') %></th>
               <!-- колонка будет распространяться на все три ячейки -->
               <th colspan="3"><%= t('.actions') %></th>
-        		</tr>
-        	</thead>
+            </tr>
+          </thead>
           
-        	<tbody>
+          <tbody>
             <!-- обработаем коллекцию тестов в представлении _test.html.erb
             Rails сам использует Итератор на коллекции -->
             <strong><%= render @tests %></strong>
-        	</tbody>
+          </tbody>
         </table>
 
       <% else %>
-      	<p>You have no tests in progress at this moment.</p>
+        <p>You have no tests in progress at this moment.</p>
       <% end %>
     </div>
   </div>
