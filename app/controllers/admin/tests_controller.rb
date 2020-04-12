@@ -40,6 +40,14 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_test_path
+    else
+      render :index
+    end
+  end
+
   def destroy
     # destroy удалит объект из БД, но объект в оперативной памяти останется 
     # и мы можем обратиться к нему к примеру, чтобы отобразить какой тест удален
