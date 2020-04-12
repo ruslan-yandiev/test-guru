@@ -1,12 +1,12 @@
 class Admin::TestsController < Admin::BaseController
 
-  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_tests, only: %i[index update_inline]
+
+  before_action :set_test, only: %i[show edit update destroy start update_inline]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
-  def index
-    @tests = Test.all
-  end
+  def index; end
 
   def show; end
 
@@ -34,7 +34,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to admin_test_path(@test)
+      redirect_to [:admin, @test], notice: t('.success')
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update_inline
     if @test.update(test_params)
-      redirect_to admin_test_path
+      redirect_to admin_test_path, notice: t('.success')
     else
       render :index
     end
@@ -59,6 +59,10 @@ class Admin::TestsController < Admin::BaseController
 
   def set_test
     @test = Test.find(params[:id])
+  end
+
+  def set_tests
+    @tests = Test.all
   end
 
   # стронг параметры, для защиты. Рельсы обязуют.

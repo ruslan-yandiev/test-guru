@@ -74,6 +74,10 @@ ru:
         header: "Редактировать тест %{title}"
       top:
         logout: "Выход"
+      update:
+        success: "Успешно обновлен"
+      update_inline:
+        success: "Успешно обновлен"
     questions:
       new:
         header: "Добавить новый вопрос для теста %{title}"
