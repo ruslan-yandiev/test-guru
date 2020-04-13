@@ -1,15 +1,15 @@
 	<!-- проверим на валидность вводимые в форму данные -->
 	<!-- если экземпляр содержит какие то ошибки -->
 	<!-- используем локальную переменную resourse для возможности обращения к обработчику объектов разных моделей -->
-  <% if resourse.errors.present? %>
+  <% if object.present? && object.errors.any? %>
 	 <div>
 	   <h2>
-	   	<%= t('.header', count: resourse.errors.count) %>:
+	   	<%= t('.header', count: object.errors.count) %>:
 	   </h2>
 
 	   <ul>
 	   	<!-- переберем массив ошибок и выведим их -->
-	     <% resourse.errors.full_messages.each do |message| %>
+	     <% object.errors.full_messages.each do |message| %>
 	       <li><%= message %></li>
 	     <% end %>
 	   </ul>
