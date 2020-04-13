@@ -1,12 +1,11 @@
-<% if resourse.present? && resourse.errors.any? %>
-	<%= content_tag :div, class: 'alert alert-danger resourse-errors', data: {resourse_id: resourse.id } do %>
+<% if resource.present? && resource.errors.any? %>
+	<%= content_tag :div, class: 'resource-errors alert alert-danger', role: 'alert', data: {resource_id: resource.id } do %>
 	   <h2>
-	   	<%= t('.header', count: resourse.errors.count) %>:
+	   	<%= t('.header', count: resource.errors.count) %>:
 	   </h2>
 
 	   <ul>
-	   	<!-- переберем массив ошибок и выведим их -->
-	     <% resourse.errors.full_messages.each do |message| %>
+	     <% resource.errors.full_messages.each do |message| %>
 	       <li><%= message %></li>
 	     <% end %>
 	   </ul>

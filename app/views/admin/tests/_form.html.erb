@@ -2,7 +2,7 @@
   <!-- [:admin, @test] укажем наличие пространства имен и правильного построения пути -->
   <%= form_with model: [:admin, @test], local: true do |form| %>
     <!-- отрендерим представление(паршл) обработки отображения ошибок -->
-    <%= render 'shared/errors', resourse: @test %>
+    <%= render 'shared/errors', resource: @test %>
 
     <div class="form-group">
       <p>

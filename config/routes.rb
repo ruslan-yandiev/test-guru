@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :gists, only: %i[index destroy]
+    
     resources :tests do
       patch :update_inline, on: :member
 
@@ -30,7 +32,5 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
-
-    resources :gists, only: %i[index destroy]
   end
 end

@@ -34,7 +34,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to [:admin, @test], notice: t('.success')
+      redirect_to admin_test_path(@test)
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update_inline
     if @test.update(test_params)
-      redirect_to admin_test_path, notice: t('.success')
+      redirect_to admin_tests_path
     else
       render :index
     end
@@ -67,7 +67,7 @@ class Admin::TestsController < Admin::BaseController
 
   # стронг параметры, для защиты. Рельсы обязуют.
   def test_params
-  	params.require(:test).permit(:title, :level, :category_id)
+  	params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 
   def rescue_with_test_not_found
