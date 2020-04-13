@@ -1,20 +1,17 @@
-	<!-- проверим на валидность вводимые в форму данные -->
-	<!-- если экземпляр содержит какие то ошибки -->
-	<!-- используем локальную переменную resourse для возможности обращения к обработчику объектов разных моделей -->
-  <% if object.present? && object.errors.any? %>
-	 <div>
+<% if resourse.present? && resourse.errors.any? %>
+	<%= content_tag :div, class: 'alert alert-danger resourse-errors', data: {resourse_id: resourse.id } do %>
 	   <h2>
-	   	<%= t('.header', count: object.errors.count) %>:
+	   	<%= t('.header', count: resourse.errors.count) %>:
 	   </h2>
 
 	   <ul>
 	   	<!-- переберем массив ошибок и выведим их -->
-	     <% object.errors.full_messages.each do |message| %>
+	     <% resourse.errors.full_messages.each do |message| %>
 	       <li><%= message %></li>
 	     <% end %>
 	   </ul>
-	 </div>
-  <% end %>
+	<% end %>
+<% end %>
 
 <!-- для того, чтобы обработка отображения об ошибках была доступна для всех классов наших моделей
 мы вынесли обработку отображения ошибок в отдельное представление в папке /shared -->
