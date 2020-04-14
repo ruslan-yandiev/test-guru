@@ -7,3 +7,5 @@ require("popper.js")
 require("bootstrap")
 require("../utilities/sorting.js")
 require("../utilities/password_confirmation.js")
+require("../utilities/form_inline.js")
+require("../utilities/progress.js"

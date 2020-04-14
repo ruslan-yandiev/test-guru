@@ -27,6 +27,10 @@ class TestPassage < ApplicationRecord
     correct_questions * 100 / count_questions
   end
 
+  def passage_percent
+    100 / test.questions.count * current_question_number
+  end
+
   def current_question_number
     test.questions.where('id <= ?', current_question.id).count
   end

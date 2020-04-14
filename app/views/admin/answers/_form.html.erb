@@ -1,7 +1,7 @@
 <div class="card p-3 my-5">
   <%= form_with model: [:admin, @question, @answer], local: true do |form| %>
     <!-- отрендерим представление(паршл) обработки отображения ошибок -->
-    <%= render 'shared/errors', resourse: @answer %>
+    <%= render 'shared/errors', resource: @answer %>
     <div class="form-group">
       <p>
         <%= form.label :body %> <br>

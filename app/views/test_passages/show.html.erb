@@ -1,7 +1,12 @@
-
 <div class="row justify-content-center">
   <div class="col col-sm-12 col-md-8 card">
     <div class="card-body">
+    	<%= content_tag :div, class: 'progress test-passage-progress', data:{ percent: @test_passage.passage_percent } do %>
+	      <div class="progress-bar progress-bar-animated" role="progressbar">
+	        <%= @test_passage.passage_percent %>%
+	      </div>
+    	<% end %>
+
 		<h1><%= t('.header', title: @test_passage.test.title) %></h1>
 		
 		<p>
@@ -12,11 +17,8 @@
 
 		<p> Тукущий вопрос: <%= @test_passage.current_question_number %> </p>
 
-		<!-- вместо модели(model:) передадим конкретный url через хелпер роутинга на который отправим данную форму
-		так как хотим отправить непривязанные к конкретной модели данные -->
-		<!-- но будем использовать не POST а PUT http метод передав его в аргументы -->
 		<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-			<!-- используем хелпер collection_check_boxes для того чтобы отобразить список чек боксов и ответов связанных с текущим вопросом. answer_ids будет параметр ответа выбранного на вопрос, далее передадим коллекцию объектов на основе которой будут сформированны чек боксы test_passage.current_question.answers, укажем метод который будет вызван для каждоко объекта из коллекции ответов и это значение будет отправлено на сервер в параметре answer_ids и далее укажем метод выводящий рядом с чек боксом текст ответа, :body, include_hidden: false отключим скрытый элемент в чек боксах-->
+
 			<%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
 				<p>
 					<%= b.check_box id: "answer_ids#{b.object.id}" %>
