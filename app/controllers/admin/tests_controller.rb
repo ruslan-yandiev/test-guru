@@ -24,7 +24,6 @@ class Admin::TestsController < Admin::BaseController
     # Если объект успешно сохранен в базу то перенаправить на отображение объекта
     if @test.save
       redirect_to admin_test_path(@test), notice: t('.success')
-      # redirect_to [:admin, @test], notice: t('.success')
     else
       # указываем, что мы хотим отрендерить шаблон связанный с методо new и сделать только это
       # то есть код самого метода new выполняться не будет!!!
