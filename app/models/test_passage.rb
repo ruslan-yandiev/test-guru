@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
@@ -10,13 +12,13 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_next_question
 
   def completed?
-  	current_question.nil?
+    current_question.nil?
   end
 
   def accept!(answer_ids)
-  	self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.correct_questions += 1 if correct_answer?(answer_ids)
 
-  	save!
+    save!
   end
 
   def count_questions
@@ -36,20 +38,16 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    if percent_result >= 85
-      true
-    else
-      false
-    end
+    percent_result >= 85
   end
 
   private
 
   def before_validation_set_next_question
     self.current_question = if current_question
-      test.questions.order(:id).where('id > ?', current_question.id).first
-    else
-      test.questions.first
+                              test.questions.order(:id).where('id > ?', current_question.id).first
+                            else
+                              test.questions.first
     end
   end
 
@@ -59,7 +57,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answers
-  	# true_answer это инициализированный нами scope или проще объект класса Proc
-  	current_question.answers.true_answer
+    # true_answer это инициализированный нами scope или проще объект класса Proc
+    current_question.answers.true_answer
   end
 end

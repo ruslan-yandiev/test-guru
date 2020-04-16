@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # class GitHubClient
 
 #   ROOT_ENDPOINT = 'https://api.github.com'

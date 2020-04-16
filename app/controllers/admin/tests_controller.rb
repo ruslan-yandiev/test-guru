@@ -1,5 +1,6 @@
-class Admin::TestsController < Admin::BaseController
+# frozen_string_literal: true
 
+class Admin::TestsController < Admin::BaseController
   before_action :set_tests, only: %i[index update_inline]
 
   before_action :set_test, only: %i[show edit update destroy start update_inline]
@@ -27,7 +28,7 @@ class Admin::TestsController < Admin::BaseController
     else
       # указываем, что мы хотим отрендерить шаблон связанный с методо new и сделать только это
       # то есть код самого метода new выполняться не будет!!!
-      # А так как экземпляр при вызове экшена create уже создан, нам будет, что рендерить. 
+      # А так как экземпляр при вызове экшена create уже создан, нам будет, что рендерить.
       render :new
     end
   end
@@ -49,7 +50,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def destroy
-    # destroy удалит объект из БД, но объект в оперативной памяти останется 
+    # destroy удалит объект из БД, но объект в оперативной памяти останется
     # и мы можем обратиться к нему к примеру, чтобы отобразить какой тест удален
     @test.destroy
     redirect_to admin_tests_path
@@ -67,7 +68,7 @@ class Admin::TestsController < Admin::BaseController
 
   # стронг параметры, для защиты. Рельсы обязуют.
   def test_params
-  	params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 
   def rescue_with_test_not_found

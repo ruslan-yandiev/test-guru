@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestsController < ApplicationController
   # authenticate_user! также реализован в devise
   before_action :authenticate_user!

@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class Admin::QuestionsController < Admin::BaseController
   before_action :set_test, only: %i[create new]
   before_action :set_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-
 
   def show; end
 
@@ -29,8 +30,7 @@ class Admin::QuestionsController < Admin::BaseController
     @question = Question.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def destroy
     redirect_to admin_test_path(@question.test) if @question.destroy
@@ -39,7 +39,7 @@ class Admin::QuestionsController < Admin::BaseController
   private
 
   def set_test
-  	@test = Test.find(params[:test_id])
+    @test = Test.find(params[:test_id])
   end
 
   def set_question

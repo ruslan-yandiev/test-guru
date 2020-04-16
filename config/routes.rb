@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # однохренственно root 'tests#index'
   root to: 'tests#index'
@@ -12,7 +14,6 @@ Rails.application.routes.draw do
 
   # маршрут должен выглядить примерно так: GET /test_passages/101/result
   resources :test_passages, only: %i[show update] do
-    
     # экшн(метод) result относится к конкретному ресурсу, а не коллекции
     # и по этому используем спец. метод member и передадим ему блок и получаем маршрут
     # который будет обслуживать URL: GET /test_passages/101/result
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :gists, only: %i[index destroy]
-    
+
     resources :tests do
       patch :update_inline, on: :member
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Test < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
@@ -11,23 +13,23 @@ class Test < ApplicationRecord
 
   validates :title, presence: true
   validates :title, uniqueness: { scope: :level }
-  validates :level, numericality: { only_integer: true, greater_than: 0 } #, if: :ruby_test?
+  validates :level, numericality: { only_integer: true, greater_than: 0 } # , if: :ruby_test?
   validate :validate_max_level, on: :create
 
-  scope :easy, -> (level) { where(level: level) }
+  scope :easy, ->(level) { where(level: level) }
   scope :lite, -> { where(level: 0..1) }
   scope :normal, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
-  scope :sort_names_by_category, lambda { |name_category| joins(:category).where(categories: { title: name_category }) }
+  scope :sort_names_by_category, ->(name_category) { joins(:category).where(categories: { title: name_category }) }
 
   private
 
   def validate_max_level
-  	errors.add(:level) if level.to_i > 10
+    errors.add(:level) if level.to_i > 10
   end
-  
+
   # Условная валидация
   # def ruby_test?
-  # 	title.match(/Ruby/i)
+  #   title.match(/Ruby/i)
   # end
 end

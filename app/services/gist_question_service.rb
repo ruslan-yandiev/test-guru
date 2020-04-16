@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class GistQuestionService
-  
   class Result
     def initialize(result)
       @result = result
@@ -7,7 +8,7 @@ class GistQuestionService
 
     def success?
       !@result[:html_url].nil?
-    end 
+    end
 
     def [](key)
       @result[key]
@@ -23,7 +24,6 @@ class GistQuestionService
   def call
     GistQuestionService::Result.new(@client.create_gist(gist_params))
   end
-
 
   private
 

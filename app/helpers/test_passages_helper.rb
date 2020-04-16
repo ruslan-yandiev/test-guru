@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TestPassagesHelper
   def final_result
     if @test_passage.success?
@@ -8,6 +10,6 @@ module TestPassagesHelper
   end
 
   def red_or_green!
-  	@test_passage.success? ? 'right' : 'not_true'
+    @test_passage.success? ? 'right' : 'not_true'
   end
 end
