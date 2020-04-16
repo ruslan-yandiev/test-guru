@@ -32,10 +32,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  
-  # для работы с переменными окружения, создав в коре приложения .env (внести его в гит игнор файл)
-  # удобнее чем использовать переменную окружения из операционки
-  gem 'dotenv-rails'
 end
 
 group :development do
@@ -64,7 +60,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-i18n'
 
 # мощный гем позволяющий делать аутоинтификацию с огромным функционалом https://github.com/heartcombo/devise
-gem "devise", "~> 4.7" # локализация https://github.com/heartcombo/devise/wiki/I18n
+gem "devise", "~> 4.0" # локализация https://github.com/heartcombo/devise/wiki/I18n
 
 #NETWORKING
 gem 'faraday'
@@ -78,3 +74,7 @@ gem "devise-i18n", "~> 1.9" # настройки для локализации h
 
 # для использования иконок на github octicons 
 gem "octicons_helper", "~> 9.3"
+
+# для работы с переменными окружения, создав в коре приложения .env (внести его в гит игнор файл)
+# удобнее чем использовать переменную окружения из операционки
+gem 'dotenv-rails'
