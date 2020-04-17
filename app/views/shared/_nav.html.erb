@@ -10,8 +10,8 @@
 
   <span class="navbar-text">
     <% if user_signed_in? %>
-    <%= link_to t('.feedback'), new_feedback_path, class: 'nav-brand' %>
-    <%= t(".Welcome") %>, <b class="btn btn-outline-secondary"><%= current_user.email %></b> Guru |
+    <%= t(".Welcome") %>, <%= current_user.email %> Guru
+    <b class="btn btn-outline-secondary"><%= link_to t('.feedback'), new_feedback_path, class: 'nav-brand' %></b>
       <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
     <% else %>
       <div class="nav btn-group">

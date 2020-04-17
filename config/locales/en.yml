@@ -28,6 +28,9 @@ en:
       header: "Tricky Tests"
     test:
       start: "Start"
+  feedbacks:
+    create:
+      success: "Send message"
 
   test_passages:
     result:

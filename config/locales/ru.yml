@@ -28,6 +28,9 @@ ru:
       admin-panel: "Aдминистрирование" 
       Welcome: "Добро пожаловать"
       feedback: "Обратная связь"
+  feedbacks:
+    create:
+      success: "Сообщение успешно отправлено"
 
   tests:
     index:
