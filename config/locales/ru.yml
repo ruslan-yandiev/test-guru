@@ -31,6 +31,9 @@ ru:
   feedbacks:
     create:
       success: "Сообщение успешно отправлено"
+  feedbacks_mailer:
+    send_feedback:
+      subject: Новый отзыв
 
   tests:
     index:
