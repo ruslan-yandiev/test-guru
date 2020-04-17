@@ -20,6 +20,8 @@ en:
       header:
         one: "%{count} errors detected"
         other: "%{count} errors detected"
+    nav:
+      feedback: "Feedback"
 
   tests:
     index:

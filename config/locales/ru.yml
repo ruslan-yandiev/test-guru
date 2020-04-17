@@ -27,6 +27,7 @@ ru:
       logout: "Выход"
       admin-panel: "Aдминистрирование" 
       Welcome: "Добро пожаловать"
+      feedback: "Обратная связь"
 
   tests:
     index:
