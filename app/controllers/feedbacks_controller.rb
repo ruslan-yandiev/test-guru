@@ -13,7 +13,7 @@ class FeedbacksController < ApplicationController
     @feedback.user_id = current_user.id
 
     if @feedback.save
-      FeedbacksMailer.send_feedback(@feedback.body).deliver_now
+      FeedbacksMailer.send_feedback(@feedback.body, @feedback.user.email).deliver_now
       flash[:notice] = t('.success')
       redirect_to tests_path
     else
