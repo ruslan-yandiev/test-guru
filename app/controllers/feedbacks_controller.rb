@@ -11,7 +11,7 @@ class FeedbacksController < ApplicationController
 
     if @feedback.valid? && FeedbacksMailer.send_feedback(@feedback).deliver_now
       flash[:notice] = t('.success')
-      redirect_to tests_path
+      redirect_to new_feedback_path
     else
       render :new
     end
