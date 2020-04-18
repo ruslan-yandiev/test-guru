@@ -1,7 +1,14 @@
 # frozen_string_literal: true
 
-class Feedback < ApplicationRecord
-  belongs_to :user
+class Feedback
+  include ActiveModel::Model
 
-  validates :body, presence: true, length: { in: 5..355 }
+  attr_accessor :author, :body
+
+  def id
+    nil
+  end
+
+  validates :author, :body, presence: true
+  validates_format_of :author, with: /\A[^@]+@[^@]+[\.a-zA-Z0-9]\z/i
 end
