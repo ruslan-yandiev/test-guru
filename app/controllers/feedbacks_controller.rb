@@ -2,9 +2,9 @@
 
 class FeedbacksController < ApplicationController
 
-  def new
-    @feedback = Feedback.new
-  end
+  skip_before_action :authenticate_user!
+
+  def new; end
 
   def create
     @feedback = Feedback.new(feedback_params)
