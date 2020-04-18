@@ -4,8 +4,8 @@ class FeedbacksMailer < ApplicationMailer
   default to: -> { Admin.pluck(:email) }, subject: -> { t('.subject') }
 
   def send_feedback(feedback)
-    @feedback = feedback.body
-    @author = feedback.author
+    @body = feedback.text
+    @author = feedback.email
     mail
   end
 end

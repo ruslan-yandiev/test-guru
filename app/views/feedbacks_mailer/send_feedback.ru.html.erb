@@ -1,9 +1,9 @@
-<h1>Отзыв TestGuru!</h1>
+<h1>Отзыв в TestGuru!</h1>
 
 <h2>Cообщение:</h2>
 
 <p>
-  <%= @feedback %>
+  <%= @body %>
 </p>
 
-Автор: <%= @current_user_email %>
+Автор: <%= link_to @author, "mailto:#{@author}" %>

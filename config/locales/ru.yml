@@ -28,12 +28,18 @@ ru:
       admin-panel: "Aдминистрирование" 
       Welcome: "Добро пожаловать"
       feedback: "Обратная связь"
+
   feedbacks:
     create:
       success: "Сообщение успешно отправлено"
+
+  feedback:
+    author: "Ваш адрес электронной почты"
+    send: "Отправить"
+    
   feedbacks_mailer:
     send_feedback:
-      subject: Новый отзыв
+      subject: "Новый отзыв"
 
   tests:
     index:

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # метод отвечает за формирование всех необходимых маршрутов для devise, и переименуем URL пути
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: 'users/sessions' }
 
-  resources :feedback, only: %i[new create]
+  resources :feedbacks, only: %i[new create]
 
   resources :tests, only: :index do
     # для конкретного теста
