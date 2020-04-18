@@ -8,12 +8,10 @@ class FeedbacksController < ApplicationController
 
   def create
     @feedback = Feedback.new(feedback_params)
-    @feedback.user_id = current_user.id
 
-    if @feedback.save
-      FeedbacksMailer.send_feedback(@feedback.body, @feedback.user.email).deliver_now
+    if @feedback.valid? && FeedbackMailer.send_feedback(@feedback).deliver_now
       flash[:notice] = t('.success')
-      redirect_to tests_path
+      redirect_to feedback_index_path
     else
       render :new
     end
@@ -22,6 +20,6 @@ class FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.require(:feedback).permit(:body)
+    params.require(:feedback).permit(:body, :author)
   end
 end
