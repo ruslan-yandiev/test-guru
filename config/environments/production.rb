@@ -66,7 +66,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
+    address:              'smtp.mail.ru',
     port:                 587,
     domain:               "test-guru-1986.herokuapp.com",
     authentication:       "plain",
