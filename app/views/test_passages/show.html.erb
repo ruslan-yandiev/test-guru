@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-3">
   <div class="col col-sm-12 col-md-8 card">
     <div class="card-body">
     	<%= content_tag :div, class: 'progress test-passage-progress', data:{ percent: @test_passage.passage_percent } do %>
@@ -13,22 +13,23 @@
 			<b> <%= @test_passage.current_question.body %> </b>
 		</p>
 
-		<p> Всего вопросов: <%= @test_passage.test.questions.count %> </p>
+		<div>
+			Всего вопросов: <b><%= @test_passage.test.questions.count %></b><br>
 
-		<p> Тукущий вопрос: <%= @test_passage.current_question_number %> </p>
+			Тукущий вопрос: <b><%= @test_passage.current_question_number %></b>
+		</div><br>
 
 		<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-
-			<%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-				<p>
-					<%= b.check_box id: "answer_ids#{b.object.id}" %>
-					<%= b.label %>
-				</p>
-			<% end %>
-
-			<p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post, class: "btn btn-info" %></p>
-
+			<div class="form-group">
+				<%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+					<div class="form-check">
+						<%= b.check_box id: "answer_ids_#{b.object.id}", class: 'form-check-input' %>
+						<b><%= b.label class: 'form-check-label' %></b>
+					</div>
+				<% end %>
+			</div>
 		    <div class="actions">
+		      <%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post, class: "btn btn-info" %>
 		      <%= form.submit t('links.next'), class: "btn btn-primary" %>
 		    </div>
 		<% end %>

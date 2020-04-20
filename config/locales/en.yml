@@ -20,12 +20,17 @@ en:
       header:
         one: "%{count} errors detected"
         other: "%{count} errors detected"
+    nav:
+      feedback: "Feedback"
 
   tests:
     index:
       header: "Tricky Tests"
     test:
       start: "Start"
+  feedbacks:
+    create:
+      success: "Send message"
 
   test_passages:
     result:
