@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_092024) do
+ActiveRecord::Schema.define(version: 2020_04_24_205342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 2020_04_18_092024) do
     t.boolean "correct", default: false, null: false
     t.bigint "question_id", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.text "name", null: false
+    t.text "url", null: false
+    t.text "rule", null: false
+    t.text "rule_value"
+  end
+
+  create_table "badges_users", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "badge_id", null: false
   end
 
   create_table "categories", force: :cascade do |t|
