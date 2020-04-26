@@ -4,6 +4,8 @@ class Admin::BadgesController < Admin::BaseController
   before_action :set_badges, only: :index
   before_action :set_badge, only: %i[show edit update destroy]
 
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_badge_not_found
+
   def index; end
 
   def show; end
@@ -49,5 +51,9 @@ class Admin::BadgesController < Admin::BaseController
 
   def set_badge
   	@badge = Badge.find(params[:id])
+  end
+
+  def rescue_badge_not_found
+    render plain: "badge not found!"
   end
 end
