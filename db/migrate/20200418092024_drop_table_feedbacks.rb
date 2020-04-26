@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class DropTableFeedbacks < ActiveRecord::Migration[6.0]
   def up
-  	drop_table :feedbacks, if_exists: true
+    drop_table :feedbacks, if_exists: true
   end
 end
