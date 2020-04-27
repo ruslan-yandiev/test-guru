@@ -45,9 +45,9 @@ class TestPassage < ApplicationRecord
 
   def before_validation_set_next_question
     self.current_question = if current_question
-                              test.questions.order(:id).where('id > ?', current_question.id).first
-                            else
-                              test.questions.first
+      test.questions.order(:id).where('id > ?', current_question.id).first
+      else
+      test.questions.first
     end
   end
 

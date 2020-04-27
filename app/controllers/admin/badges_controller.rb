@@ -11,7 +11,7 @@ class Admin::BadgesController < Admin::BaseController
   def show; end
 
   def new
-  	@badge = Badge.new
+    @badge = Badge.new
   end
 
   def create
@@ -45,12 +45,12 @@ class Admin::BadgesController < Admin::BaseController
     @badges = Badge.all
   end
 
-  def badge_params
-  	params.require(:badge).permit(:name, :url, :rule)
+  def set_badge
+    @badge = Badge.find(params[:id])
   end
 
-  def set_badge
-  	@badge = Badge.find(params[:id])
+  def badge_params
+    params.require(:badge).permit(:name, :url, :rule)
   end
 
   def rescue_badge_not_found
