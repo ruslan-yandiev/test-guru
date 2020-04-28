@@ -54,6 +54,6 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def rescue_badge_not_found
-    render plain: "badge not found!"
+    render plain: 'badge not found!'
   end
 end
