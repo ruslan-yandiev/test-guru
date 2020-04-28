@@ -8,10 +8,8 @@ class BadgeService < Rule
   def reward
     return unless @test_passage.success?
 
-    @badges = Badge.all
-
-    @badges.each do |badge|
-      @user.badges.push(badge) if send(badge.rule, badge.rule_value)
+    Badge.all.each do |badge|
+      @user.badges.push(badge) if send("#{badge.rule}".to_sym, badge.rule_value)
     end
   end
 end
