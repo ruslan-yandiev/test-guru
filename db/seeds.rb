@@ -59,7 +59,22 @@ Answer.create!([
                  { body: 'кусок кода', question: questions[6], correct: true },
                  { body: 'специальный объект', question: questions[6] },
                  { body: 'верного ответа нет', question: questions[6] },
-                 { body: 'все ответы верны', question: questions[6] }
+                 { body: 'все ответы верны', question: questions[6] },
+
+                 { body: 'объект класса Proc', question: questions[7], correct: true },
+                 { body: 'специальный объект', question: questions[7] },
+                 { body: 'верного ответа нет', question: questions[7] },
+                 { body: 'все ответы верны', question: questions[7] },
+
+                 { body: 'обработкой метода return', question: questions[8], correct: true },
+                 { body: 'обработкой переданных аргументов', question: questions[8], correct: true },
+                 { body: 'верного ответа нет', question: questions[8] },
+                 { body: 'ничем', question: questions[8] },
+
+                 { body: 'map', question: questions[9]},
+                 { body: 'eval', question: questions[9], correct: true },
+                 { body: 'step', question: questions[9] },
+                 { body: 'method_missing', question: questions[9], correct: true }
                ])
 
 TestPassage.create([
