@@ -28,6 +28,7 @@ ru:
       admin-panel: "Aдминистрирование" 
       Welcome: "Добро пожаловать"
       feedback: "Обратная связь"
+      badges: "Награды"
 
   feedbacks:
     create:
@@ -63,6 +64,15 @@ ru:
     gist:
       success: "Gist успешно сохранён: <a href='%{url}' class='btn btn-link' target='_blank'>Ссылка на Gist</a>"
       failure: "Во время сохранения gist произошла ошибка"
+
+  badges:
+    index:
+      name: "Название"
+      image: "Изображение"
+      rule: "Правило"
+      rule_value: "Значение"
+      received: "Полученные значки:"
+      header: "Нагарады"
 
   admin:
     tests:
@@ -120,6 +130,29 @@ ru:
         hash: Gist URL
         link: Вопрос
         user: Пользователь
+    badges:
+      show:
+        title: "Значок"
+        url: "URL адрес изображения"
+        name: "Название"
+        rule: "Название метода определяющего правило"
+        rule_value: "Значение"
+        all_badges: "Все созданные награды"
+      index:
+        title: "Награды:"
+        edit: "Редактировать"
+        delete: "Удалить"
+        url: "URL"
+        name: "Название"
+        rule: "Правило"
+        rule_value: "Значение"
+        add: "Добавить награду"
+        all_badges: "Все созданные награды"
+      new:
+        title: "Создание награды"
+      edit:
+        title: "Редактирование награды"
+
 
   links:
     show: "Просмотр"

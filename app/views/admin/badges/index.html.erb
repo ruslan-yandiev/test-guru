@@ -1,20 +1,32 @@
-<h1><%= t(".title") %></h1>
+<div class="row justify-content-center">
+  <div class="<col col-md-4>">
+    <div class="card-body">
 
-<%= render 'shared/errors', resource: @badge %>
+      <h1><%= t('.title') %></h1><br>
 
-<p>
-  <table>
-    <tr>
-      <th><%= t(".id") %></th>
-      <th><%= t(".name") %></th>
-      <th><%= t(".url") %></th>
-      <th><%= t(".rule") %></th>
-      <th><%= t(".rule_value") %></th>
-      <th><%= t(".edit") %></th>
-      <th><%= t(".delete") %></th>
-    </tr>
-    <%= render @badges %>
-  </table>
-</p>
+      <div><%= link_to t('.add'), new_admin_badge_path(@badge), class: 'btn btn-primary' %></div><br>
 
-<p><%= link_to t(".create"), new_admin_badge_path, class: 'btn btn-primary' %></p>
+      <%= render 'shared/errors', resource: @badge %>
+
+        <table class='table table-hover table-responsive-sm'>
+          <thead>
+            <tr>
+              <th><%= t(".id") %></th>
+              <th><%= t(".name") %></th>
+              <th><%= t(".url") %></th>
+              <th><%= t(".rule") %></th>
+              <th><%= t(".rule_value") %></th>
+              <th><%= t(".edit") %></th>
+              <th><%= t(".delete") %></th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <!-- обработаем коллекцию тестов в представлении _test.html.erb
+            Rails сам использует Итератор на коллекции -->
+            <strong><%= render @badges %></strong>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
