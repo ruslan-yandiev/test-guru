@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: 'users/sessions' }
 
   resources :feedbacks, only: %i[new create]
+  resources :badges, only: :index
 
   resources :tests, only: :index do
     # для конкретного теста
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :gists, only: %i[index destroy]
+    resources :badges
 
     resources :tests do
       patch :update_inline, on: :member

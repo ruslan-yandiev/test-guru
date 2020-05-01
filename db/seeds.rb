@@ -10,10 +10,11 @@ categories = Category.create!([{ title: 'Люди' }, { title: 'Животные
 
 tests = Test.create!([
                        { title: 'Образование', level: 1, category: categories[0], author: user2 },
-                       { title: 'Здоровье', level: 2, category: categories[0], author: user2 },
-                       { title: 'Особенности', level: 1, category: categories[1], author: user },
-                       { title: 'Виды', level: 2, category: categories[1], author: user },
-                       { title: 'Ruby', level: 1, category: categories[2], author: user }
+                       { title: 'Здоровье', level: 1, category: categories[0], author: user2 },
+                       { title: 'Особенности', level: 2, category: categories[1], author: user },
+                       { title: 'Виды', level: 1, category: categories[1], author: user },
+                       { title: 'Ruby', level: 2, category: categories[2], author: user },
+                       { title: 'Ruby on Rails', level: 3, category: categories[2], author: user }
                      ])
 
 questions = Question.create([
@@ -27,7 +28,10 @@ questions = Question.create([
                               { body: 'Что такое блок в Ruby?', test: tests[4] },
                               { body: 'Что такое lambda?', test: tests[4] },
                               { body: 'Чем lambda отличается от Proc?', test: tests[4] },
-                              { body: 'Отметьте методы используемые в метопрогмаммировании', test: tests[4] }
+                              { body: 'Отметьте методы используемые в метопрогмаммировании', test: tests[4] },
+
+                              { body: 'Что такое ActiveRicord ?', test: tests[5] },
+                              { body: 'Отметьте патерны используемые по соглашению в Rails', test: tests[5] }
                             ])
 
 Answer.create!([
@@ -59,7 +63,32 @@ Answer.create!([
                  { body: 'кусок кода', question: questions[6], correct: true },
                  { body: 'специальный объект', question: questions[6] },
                  { body: 'верного ответа нет', question: questions[6] },
-                 { body: 'все ответы верны', question: questions[6] }
+                 { body: 'все ответы верны', question: questions[6] },
+
+                 { body: 'объект класса Proc', question: questions[7], correct: true },
+                 { body: 'специальный объект', question: questions[7] },
+                 { body: 'верного ответа нет', question: questions[7] },
+                 { body: 'все ответы верны', question: questions[7] },
+
+                 { body: 'обработкой метода return', question: questions[8], correct: true },
+                 { body: 'обработкой переданных аргументов', question: questions[8], correct: true },
+                 { body: 'верного ответа нет', question: questions[8] },
+                 { body: 'ничем', question: questions[8] },
+
+                 { body: 'map', question: questions[9]},
+                 { body: 'eval', question: questions[9], correct: true },
+                 { body: 'step', question: questions[9] },
+                 { body: 'method_missing', question: questions[9], correct: true },
+
+                 { body: 'Routes', question: questions[10]},
+                 { body: 'ORM', question: questions[10], correct: true },
+                 { body: 'нет верного ответа', question: questions[10] },
+                 { body: 'Авторский gem', question: questions[10] },
+
+                 { body: 'SOLID', question: questions[11]},
+                 { body: 'MVC', question: questions[11], correct: true },
+                 { body: 'нет верного ответа', question: questions[11] },
+                 { body: 'ActiveRicord', question: questions[11], correct: true }
                ])
 
 TestPassage.create([
@@ -67,7 +96,8 @@ TestPassage.create([
                      { user: user, test: tests[1] },
                      { user: user, test: tests[2] },
                      { user: user, test: tests[3] },
-                     { user: user, test: tests[4] }
+                     { user: user, test: tests[4] },
+                     { user: user, test: tests[5] }
                    ])
 
 Test.create!(title: 'existing test', category: categories[1], author: user)

@@ -1,16 +1,18 @@
 <nav class="navbar navbar-light bg-light">
   <strong><%= link_to 'TestGuru', root_path, class: 'navbar-brand' %></strong>
 
-  <div class="navbar navbar-light bg-light">
+  <!-- <div class="navbar navbar-light bg-light"> -->
     <% if current_user.try(:admin?) %>
-      <b class="btn btn-outline-secondary"><%= link_to t('.admin-panel'), admin_tests_path, class: "nav-link" %></b>
-      <b class="btn btn-outline-secondary"><%= link_to t('navbar.gists'), admin_gists_path, class: "nav-link" %></b>
+      <b><%= link_to t('.badges'), admin_badges_path, class: 'nav-brand' %></b>
+      <b><%= link_to t('.admin-panel'), admin_tests_path, class: "nav-brand" %></b>
+      <b><%= link_to t('navbar.gists'), admin_gists_path, class: "nav-brand" %></b>
     <% end %>
-  </div>
+  <!-- </div> -->
 
   <span class="navbar-text">
     <% if user_signed_in? %>
     <%= t(".Welcome") %>, <%= current_user.email %> Guru
+    <b class="btn btn-outline-secondary"><%= link_to t('.badges'), badges_path, class: 'nav-brand' %></b>
     <b class="btn btn-outline-secondary"><%= link_to t('.feedback'), new_feedback_path, class: 'nav-brand' %></b>
       <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
     <% else %>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Feedbacks < ActiveRecord::Migration[6.0]
   create_table :feedbacks do |t|
     t.text :body, null: false

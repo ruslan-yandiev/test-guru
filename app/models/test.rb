@@ -20,9 +20,14 @@ class Test < ApplicationRecord
   scope :lite, -> { where(level: 0..1) }
   scope :normal, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
+  scope :level, -> (level) { where(level: level) }
   scope :sort_names_by_category, ->(name_category) { joins(:category).where(categories: { title: name_category }) }
 
   private
+
+  def self.names_by_category(name_category)
+    sort_names_by_category(name_category).pluck(:title)
+  end
 
   def validate_max_level
     errors.add(:level) if level.to_i > 10

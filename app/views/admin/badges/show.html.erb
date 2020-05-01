@@ -1,0 +1,16 @@
+<h1><%= t('.title') %></h1>
+<div>
+  <%= link_to t("links.edit"), edit_admin_badge_path(@badge), class: 'btn btn-primary' %>
+  <%= link_to t("links.delete.title"), admin_badge_path(@badge), method: :delete, data: { confirm: t('links.delete.confirm') }, class: 'btn btn-danger' %>
+</div>
+
+<p>
+  <div><%= t('.name') %>: <%= @badge.name %></div>
+  <div><%= t('.url') %>: <%= @badge.url %></div>
+  <div><%= t('.rule') %>: <%= @badge.rule %></div>
+  <div><%= t('.rule_value') %>: <%= @badge.rule_value %></div>
+</p>
+
+<p>
+  <div><%= link_to t('.all_badges'), admin_badges_path, class: 'btn btn-primary' %></div>
+</p>
