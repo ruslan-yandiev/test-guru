@@ -10,6 +10,8 @@ class TestPassage < ApplicationRecord
   # вызовем хук который реализует валидацию и передадим опцию для создания нового объекта TestPassage
   # или назначеает следующий вопрос
   before_validation :before_validation_set_next_question
+  before_update :passage_resilt!, if: :completed?
+  # before_save :passage_resilt!, if: :completed? как вариант
 
   def completed?
     current_question.nil?
@@ -59,5 +61,9 @@ class TestPassage < ApplicationRecord
   def correct_answers
     # true_answer это инициализированный нами scope или проще объект класса Proc
     current_question.answers.true_answer
+  end
+
+  def passage_resilt!
+    self.success = self.success?
   end
 end

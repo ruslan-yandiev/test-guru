@@ -15,7 +15,7 @@
 
   <div class="form-group">
     <%= form.label :rule %>:
-    <%= form.text_field :rule, class: 'form-control' %>
+    <%= form.select :rule, badge_rule, selected: @badge.rule, class: 'form-control' %>
   </div>
 
   <div class="form-group">

@@ -50,7 +50,7 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def badge_params
-    params.require(:badge).permit(:name, :url, :rule,:rule_value)
+    params.require(:badge).permit(:name, :url, :rule, :rule_value)
   end
 
   def rescue_badge_not_found

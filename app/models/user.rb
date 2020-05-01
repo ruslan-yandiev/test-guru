@@ -3,10 +3,13 @@
 class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
+  
   has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
   has_many :gists, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
-  has_and_belongs_to_many :badges, -> { distinct }
+
+  has_many :badges_users, dependent: :destroy
+  has_many :badges, through: :badges_users
 
   validates :first_name, :last_name, presence: true
 
@@ -19,6 +22,10 @@ class User < ApplicationRecord
          :trackable,
          :validatable,
          :confirmable
+
+  def success_tests
+    tests.where(test_passages: { success: true })
+  end
 
   def tests_list(value_level)
     tests.where(level: value_level)
