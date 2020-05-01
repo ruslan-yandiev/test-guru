@@ -1,6 +1,11 @@
 ru:
   hello: "Привет Мир"
 
+  rules:
+    first_try?: "Пройти с первого раза"
+    all_category?: "Пройти все тесты из одной категории"
+    all_level?: "Пройти все тесты одного уровня"
+
   helpers:
     submit:
       test:

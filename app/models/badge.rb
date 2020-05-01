@@ -7,6 +7,5 @@ class Badge < ApplicationRecord
   validates :name, presence: true, length: { in: 3..300 }
   validates :url,  presence: true, length: { in: 3..300 }
   validates :rule, presence: true, length: { in: 3..300 }
-  validates :rule, inclusion: { in: Rule::ALL_BADGES_RULES.map, message: "%{value} is not a valid rule" }
-  validates_uniqueness_of :rule
+  validates :rule, inclusion: { in: Rule::ALL_BADGES_RULES, message: "%{value} is not a valid rule" }
 end

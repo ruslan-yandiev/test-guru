@@ -20,32 +20,28 @@ class Rule
     passages == 1
   end
 
-  def all_category?(category_name)
-  	return if @test_passage.test.category.title != category_name
+  def all_category?(badge)
+  	return if @test_passage.test.category.title != badge.rule_value
   	return unless @test_passage.success?
 
   	    (
-      Test.sort_names_by_category(category_name).pluck(:id) -
-      new_passages(last_badge_date(:all_category?, category_name)).ids
+      Test.sort_names_by_category(badge.rule_value).pluck(:id) -
+      new_passages(last_badge_date(:all_category?, badge)).ids
     ).empty?
   end
 
-  def all_level?(level_number)
-  	return if @test_passage.test.level != level_number.to_i
+  def all_level?(badge)
+  	return if @test_passage.test.level != badge.rule_value.to_i
   	return unless @test_passage.success?
 
 	    (
-      Test.level(level_number).pluck(:id) -
-      new_passages(last_badge_date(:all_level?, level_number)).ids
+      Test.level(badge.rule_value).pluck(:id) -
+      new_passages(last_badge_date(:all_level?, badge)).ids
     ).empty?
   end
 
-  def cleaning
-  	$ids_collection.clear
-  end
-
-  def last_badge_date(rule, rule_value)
-    @user.badges_users.joins(:badge).where(badges: { rule: rule, rule_value: rule_value }).order(:created_at).last.try(:created_at)
+  def last_badge_date(rule, badge)
+    badge.badges_users.where(user: @user).order(:created_at).last.try(:created_at)
   end
 
   def new_passages(last_date)

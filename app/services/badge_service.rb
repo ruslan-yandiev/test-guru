@@ -8,7 +8,7 @@ class BadgeService < Rule
 
   def reward
     Badge.all.select do |badge|
-      badge if send("#{badge.rule}".to_sym, badge.rule_value)
+      badge if send("#{badge.rule}".to_sym, badge)
     end
   end
 end

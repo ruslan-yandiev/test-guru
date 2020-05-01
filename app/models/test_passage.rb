@@ -10,7 +10,7 @@ class TestPassage < ApplicationRecord
   # вызовем хук который реализует валидацию и передадим опцию для создания нового объекта TestPassage
   # или назначеает следующий вопрос
   before_validation :before_validation_set_next_question
-  before_update :passage_resilt!, if: :completed?
+  # before_update :passage_resilt!, if: :completed?
   # before_save :passage_resilt!, if: :completed? как вариант
 
   def completed?
@@ -19,6 +19,8 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+
+    passage_resilt!
 
     save!
   end
