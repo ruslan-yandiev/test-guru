@@ -18,9 +18,9 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    self.correct_questions += 1 if correct_answer?(answer_ids)
-
     self.test_complete if time_is_over?
+
+    self.correct_questions += 1 if correct_answer?(answer_ids)
 
     passage_resilt!
 
@@ -28,7 +28,7 @@ class TestPassage < ApplicationRecord
   end
 
   def test_complete
-    self.current_question = nil
+    self.success = self.success? ? true : false
   end
 
   def left_at
