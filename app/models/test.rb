@@ -15,6 +15,7 @@ class Test < ApplicationRecord
   validates :title, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than: 0 } # , if: :ruby_test?
   validate :validate_max_level, on: :create
+  validates :timer, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   scope :easy, ->(level) { where(level: level) }
   scope :lite, -> { where(level: 0..1) }
