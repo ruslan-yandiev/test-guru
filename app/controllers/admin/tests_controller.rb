@@ -67,7 +67,7 @@ class Admin::TestsController < Admin::BaseController
 
   # стронг параметры, для защиты. Рельсы обязуют.
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id, :author_id, :timer)
   end
 
   def rescue_with_test_not_found
