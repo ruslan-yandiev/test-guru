@@ -18,11 +18,29 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
+    self.test_complete if time_is_over?
+
     self.correct_questions += 1 if correct_answer?(answer_ids)
 
     passage_resilt!
 
     save!
+  end
+
+  def test_complete
+    self.success = self.success? ? true : false
+  end
+
+  def left_at
+    self.created_at + self.test.timer.minutes
+  end
+
+  def passage_time?
+    true unless self.test.timer.zero?
+  end
+
+  def secounds_left
+    Time.at(left_at - Time.current).strftime("%s")
   end
 
   def count_questions
@@ -63,6 +81,12 @@ class TestPassage < ApplicationRecord
   def correct_answers
     # true_answer это инициализированный нами scope или проще объект класса Proc
     current_question.answers.true_answer
+  end
+
+  private
+
+  def time_is_over?
+    Time.current >= self.left_at && self.passage_time?
   end
 
   def passage_resilt!
